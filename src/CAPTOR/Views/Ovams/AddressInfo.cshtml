@@ -1,0 +1,178 @@
+﻿<div class="row info-list">
+    <div class="form-input-flat" name="demo-form">
+        <section>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group input-controls">
+                        <label class="control-label">Type</label>
+                        <input type="text" data-id="1" name="ddlAddressType" required="" id="ddlAddressType" class="form-control ui-autocomplete-input required" autocomplete="off" placeholder="Select One"
+                               />
+                        <span class="input-group-addon right dropdown-icon"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">Effective Date</label>
+                        <div class="input-group controls date" data-date-format="mm-dd-yyyy">
+                            <input id="txtAddressEffectiveDate" class="form-control no-future-date required" placeholder="Type the Effective Date" name="future-date-picker"
+                                    />
+                            <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">End Date</label>
+                        <div class="input-group controls date" data-date-format="mm-dd-yyyy">
+                            <input id="txtAddressEndDate" class="form-control no-future-date required" placeholder="Type the End Date" name="future-date-picker"
+                                    />
+                            <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">Address Line 1</label>
+                        <input id="txtAddressLine1" class="form-control required" placeholder="Type the Address Line 1"
+                               />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">Address Line 2</label>
+                        <input id="txtAddressLine2" class="form-control required" placeholder="Type the Address Line 2"
+                               />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">Address Line 3</label>
+                        <input id="txtAddressLine3" class="form-control required" placeholder="Type the Address Line 3"
+                                />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">City</label>
+                        <input id="txtAddressCity" class="form-control required" placeholder="Type the Name of the City"
+                               />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group input-controls">
+                        <label class="control-label">State</label>
+                        <input type="text" data-id="1" name="ddlAddressState" required="" id="ddlAddressState" class="form-control ui-autocomplete-input required" autocomplete="off" placeholder="Select One"
+                                />
+                        <span class="input-group-addon right dropdown-icon"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label typeof="required" class="control-label">Zip Code</label>
+                        <input id="txtZipCode" class="form-control required" placeholder="Type the Zip Code"
+                               />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group input-controls">
+                        <label class="control-label">County</label>
+                        <input type="text" data-id="1" name="ddlAddressCounty" required="" id="ddlAddressCounty"
+                               class="form-control ui-autocomplete-input required" autocomplete="off" placeholder="Select One"
+                               />
+                        <span class="input-group-addon right dropdown-icon"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group input-controls">
+                        <label class="control-label">Country</label>
+                        <input type="text" data-id="1" name="ddlAddressCountry" required="" id="ddlAddressCountry"
+                               class="form-control ui-autocomplete-input required" autocomplete="off" placeholder="Select One"
+                               />
+                        <span class="input-group-addon right dropdown-icon"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 page-buttons">
+                    <button type="button" class="btn-before-validation btn btn-default btn-icon btn-search btn-go-forward pull-right red-tooltip" data-toggle="tooltip" data-placement="top"
+                           >
+                        <!--Defect #95159-->
+                        <span>Add this Address</span>
+                        <span class="icon"></span>
+                    </button>
+                    <button type="button" class="btn-before-validation btn btn-default btn-icon btn-search btn-go-forward pull-right red-tooltip" data-toggle="tooltip" data-placement="top"
+                            >
+                        <!--Defect #95159-->
+                        <span></span>
+                        <span class="icon"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container row">
+                <div class="col-md-4" >
+                    <!-- New Tile -->
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>Physical/Mailing</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <div class="tile-info">
+                                                <div ng-show="clientaddress.addressLine1.length">
+                                                    <label></label><span></span>
+                                                </div>
+                                                <div ng-show="clientaddress.addressLine2.length">
+                                                    <label></label><span></span>
+                                                </div>
+                                                <div ng-show="clientaddress.addressLine3.length">
+                                                    <label></label><span></span>
+                                                </div>
+                                                <div>
+                                                    <label> </label>
+                                                </div>
+                                                <div>
+                                                    <label>UNITED STATES</label>
+                                                </div>
+                                                <div>
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-4">
+                                            <a  class="btn-footer btn-flip flip-link"> Remove </a>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a  class="btn-footer btn-flip flip-link"> Flip </a>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a  class="btn-footer spinload"> Select </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

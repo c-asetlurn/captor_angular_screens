@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "New Client Application";
+    Layout = "_LayoutOVAMS";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="new-person-page-header page-header col-xs-12">
+            <span>New Applicant</span>
+        </h1>
+    </div>
+</div>
+
+<div class="row page" >
+    <form name="clientForm">
+        <div class="col-xs-12">
+            <div class="widget widget-form">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <h4>Application Information</h4>
+                            <p class="help-block text-muted m-b-0">
+                                This applicant is associated with the current application.
+                            </p>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="form-group widget-header-radio-group">
+                                <div class="radio-group inline-radio">
+                                    <input id="individualForm" class="radio-custom " name="radio-group" type="radio" checked>
+                                    <label for="individualForm" class="radio-custom-label">Individual</label>
+                                </div>
+                                <div id="offender" class="radio-group inline-radio">
+                                    <input id="checkboxIsOffender" class="checkbox-custom " name="checkbox-group" type="checkbox">
+                                    <label for="checkboxIsOffender" class="checkbox-custom-label">Is Also an Offender?</label>
+                                </div>
+
+                                <div id="stateOffender" class="radio-group inline-radio">
+                                    <input id="checkboxStateOffender" class="checkbox-custom " name="checkbox-group" type="checkbox">
+                                    <label for="checkboxStateOffender" class="checkbox-custom-label">State Offender?</label>
+                                </div>
+
+                                <div class="radio-group inline-radio">
+                                    <input id="businessForm" class="radio-custom" name="radio-group" type="radio">
+                                    <label for="businessForm" class="radio-custom-label">Business</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-body clearfix">
+                    <div class="form-input-flat" name="demo-form">
+                        <section id="collapseForm" class="collapse in">
+                            <div class="row">
+                                <div class="col-xs-12 applicant-tabs">
+                                    <ul class="nav nav-pills nav-justified nav-pills-primary nav-pills-inline">
+                                        <li class="active"><a ui-sref="applicantDemographics" data-toggle="tab" >Demographic<br />Information</a></li>
+                                        <li id="applicantAddressTab"><a ui-sref="applicantAddress">Address<br />Information</a></li>
+                                        <li id="applicantPhoneTab"><a href="#applicantPhone" data-toggle="tab" >Phone<br />Information</a></li>
+                                        <li id="applicationEmailTab"><a href="#emailInformation" data-toggle="tab" ng-click="vm.ChangeTab('emailInfo');">Email<br />Information</a></li>
+                                        <li id="applicantContactPreferencesTab"><a href="#contactPreferencesInformation" data-toggle="tab" ng-click="vm.ChangeTab('contactPreferenceInfo');">Contact<br />Preferences</a></li>
+                                        <li id="applicantInformationTab"><a href="#applicantInformation" data-toggle="tab" ng-click="vm.ChangeTab('releaseInfo');">Information<br />Release</a></li>
+                                        <li id="applicantAssociationTab"><a href="#applicantAssociation" data-toggle="tab">Applicant<br />Association</a></li>
+                                        <li id="acpInformationTab"><a href="#acpInformation" data-toggle="tab">ACP<br />Information</a></li>
+                                        <li><a href="#offenderAssociation" data-toggle="tab">Reentrant<br />Association</a></li>
+                                        <li id="applicationIdentityVerificationTab"><a href="#applicantIdentity" data-toggle="tab" ng-click="vm.ChangeTab('IdentityVerification');">Identity<br />Verification</a></li>
+
+                                    </ul>
+                                    <div class="tab-content panel">
+                                        <div class="tab-pane fade active in" id="applicantDemographics">
+                                            <div ui-view></div>
+                                           
+                                           
+</div>
+</div>
+
+                                    

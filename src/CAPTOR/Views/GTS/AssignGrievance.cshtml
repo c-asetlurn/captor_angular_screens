@@ -1,0 +1,528 @@
+﻿@{
+    Layout = "LayoutGTS";
+    ViewData["Title"] = "View Initial Review Response";
+}
+<!-- Page Header -->
+<div class="row">
+    <div class="col-xs-8 col-md-8">
+        <h1 class="grievance-page-header page-header col-xs-12"><span>Initial Review Response</span></h1>
+    </div>
+</div>
+<!--View Initial Review Response with Page Number 1-->
+<div class="row page">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <ul class="nav nav-pills nav-justified nav-pills-primary nav-pills-inline">
+                    <li data-id="1111" class="active"><a ui-sref="AssignmentDetails" class="assignment-details-tab" data-toggle="tab">Assignment <br />Details</a></li>
+                    <li data-id="1112"><a ui-sref="InitialReview" class="initial-review-tab" data-toggle="tab">Initial<br />Review</a></li>
+                    <li data-id="1113"><a ui-sref="InitialResponse" class="initial-response-tab" data-toggle="tab">Response<br />&nbsp;</a></li>
+                    <li data-id="1114"><a ui-sref="InitialNotes" class="assignment-notes-tab" data-toggle="tab">Initial<br />Review Note</a></li>
+                </ul>
+                <p class="help-block text-muted m-b-0">
+                    Scroll or Swipe Up and Down / Click on tabs to move across each section
+                </p>
+                <div class="col-xs-3 attempted text-right pull-right">
+                    <label>Grievance Number:</label>
+                    <span>12345</span>
+                </div>
+                <div class="col-xs-3 attempted text-right pull-right">
+                    <label>Actual Due Date:</label>
+                    <span>01/01/2014</span>
+                </div>
+                <div class="col-xs-3 attempted text-right pull-right">
+                    <label>Status:</label>
+                    <span>Initial Response Pending</span>
+                </div>
+            </div>
+
+
+            <div class="widget-body clearfix assign-grievance-list">
+                <div ui-view></div>
+
+            </div>
+        </div>
+        <div class="col-xs-12 page-buttons">
+            <a asp-controller="GrievanceSummary" asp-action="ViewGrievance">
+                <div class="btn btn-secondary btn-icon btn-back pull-left">
+                    <span class="icon"></span>
+                    <span>Back to Grievance History</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+    <!--View Initial Review Response Ends-->
+    <!--Investigation Modal starts here-->
+    <div class="modal modal-lg fade" id="investigation-modal" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Investigation Details
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Date sent to OSII</label>
+                                <div class="input-group controls">
+                                    <input type="text" name="future-date-picker" value="" id="no-future-investigation-sent-date" class="form-control" placeholder="MM/DD/YYYY">
+                                    <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Date Received From OSII</label>
+                                <div class="input-group controls">
+                                    <input type="text" name="future-date-picker" value="" id="no-future-investigation-received-date" class="form-control" placeholder="MM/DD/YYYY">
+                                    <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">OSII Tracking Number</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" id="" class="btn btn-secondary btn-icon btn-cancel pull-left investigation-cancel-btn" data-dismiss="modal">
+                                <span class="icon"></span>
+                                <span>Cancel</span>
+                            </button>
+                            <div class="btn btn-default btn-icon btn-save pull-right" data-dismiss="modal">
+                                <span>Save</span>
+                                <span class="icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Investigation Modal ends here-->
+
+<!--Request Extension modal starts here-->
+<div class="modal modal-lg fade" id="ReqExtension-modal" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Extension Details
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group input-controls">
+                            <label class="control-label">Extension Period</label>
+                            <input type="text" data-id="5" name="reassigned_to" required="" id="reassigned-to" class="form-control" autocomplete="off" placeholder="Type the Name" />
+                            <span class="input-group-addon right dropdown-icon"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group input-controls">
+                            <label class="control-label">Request Sent To</label>
+                            <input type="text" data-id="5" name="reassigned_to" required="" id="reassigned-to" class="form-control" autocomplete="off" placeholder="Type the Name" />
+                            <span class="input-group-addon right dropdown-icon"></span>
+                        </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" id="" class="btn btn-secondary btn-icon btn-cancel pull-left investigation-cancel-btn" data-dismiss="modal">
+                            <span class="icon"></span>
+                            <span>Cancel</span>
+                        </button>
+                        <div class="btn btn-default btn-icon btn-save pull-right" data-dismiss="modal">
+                            <span>Submit Request</span>
+                            <span class="icon"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Request Extension Modal ends here-->
+<!--ity-->
+ 
+
+    
+ 
+    <!--Add A New Note with Page Number 2-->
+    <div class="row page2">
+        <div class="col-xs-12">
+            <div class="widget widget-form">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h4>Add A New Initial Review Note</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-body clearfix">
+                    <div class="form-input-flat">
+                        <section>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Initial Review Note</label>
+                                        <textarea type="textarea" id="new_note" class="form-control new_note_tinymce"></textarea>
+                                        <span class="small text-right counter new_note_character_count">2000 of 2000 characters remaining</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 page-buttons">
+            <a class="btn-waypoint btn-go-forward" data-panel-link="page">
+                <div type="submit" class="btn btn-secondary btn-icon btn-back pull-left">
+                    <span class="icon"></span>
+                    <span>Cancel</span>
+                </div>
+            </a>
+            <a class="btn-waypoint btn-go-forward" data-panel-link="page">
+                <div id="" type="submit" class="btn btn-default btn-icon btn-save pull-right">
+                    <span>Add Initial Review Note</span>
+                    <span class="icon"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--View A New Note With Page Number 3-->
+    <div class="row page3">
+        <div class="col-xs-12">
+            <div class="widget widget-form">
+                <div class="widget-header">
+                    <h4>View Initial Review Note</h4>
+                </div>
+                <div class="widget-body clearfix">
+                    <div class="form-input-flat">
+                        <section>
+                            <div class="row org-chart-info">
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="">
+                                        <label class="control-label">Added By</label>
+                                        <p>Sean White</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Added On</label>
+                                        <p><i class="fa ion-calendar"></i> 02/12/2016</p>
+                                        <p><i class="fa ion-android-time"></i> 2100 <span>hrs</span></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Initial Review Note</label>
+                                        <textarea type="textarea" class="form-control tinymcedisabled">Lorem ipsum dolor sit amet, egestas a aliquam odio vivamus magna, vitae urna turpis habitasse nibh et ac, sem lorem ante primis placerat amet, feugiat velit etiam aliquam lacus volutpat placerat, purus id augue diam cursus. Quis massa eleifend quam sit velit, donec neque, quam libero luctus parturient. Blandit sed pharetra adipiscing bibendum. Pellentesque leo vivamus natoque integer, sed quis integer neque libero ultrices pharetra, feugiat nisl. Vestibulum ac ligula. Mollis a velit neque ultricies, nascetur arcu cursus dolor vel pellentesque urna.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 page-buttons">
+            <a class="btn-waypoint btn-go-forward" data-panel-link="page">
+                <div class="btn btn-secondary btn-icon btn-back pull-left">
+                    <span class="icon"></span>
+                    <span>Back to Initial Review Response</span>
+                </div>
+            </a>
+            <button id="" type="submit" class="btn btn-danger btn-delete btn-icon pull-left" data-target="#delviewnote" data-toggle="modal">
+                <span class="icon"></span>
+                <span>Delete This Note</span>
+            </button>
+
+        </div>
+    </div>
+
+    <!--Reassign Modal Starts-->
+    <div class="modal modal-lg fade" id="reassign-modal" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Reassignment
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group input-controls">
+                                <label class="control-label">Reassigned To</label>
+                                <input type="text" data-id="5" name="reassigned_to" required="" id="reassigned-to" class="form-control" autocomplete="off" placeholder="Type the Name" />
+                                <span class="input-group-addon right dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group input-controls">
+                                <label class="control-label">Reassigned By</label>
+                                <input type="text" data-id="6" name="reassigned_by" required="" id="reassigned-by" class="form-control" autocomplete="off" placeholder="Type the Name" />
+                                <span class="input-group-addon right dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Reassigned Date</label>
+                                <div class="input-group controls">
+                                    <input type="text" name="future-date-picker" value="" id="no-future-reassignment-date" class="form-control" placeholder="MM/DD/YYYY">
+                                    <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-secondary btn-icon btn-cancel pull-left" data-dismiss="modal">
+                                <span class="icon"></span>
+                                <span>Cancel</span>
+                            </button>
+                            <div class="btn btn-default btn-icon btn-save pull-right" data-dismiss="modal">
+                                <span>Save</span>
+                                <span class="icon"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Reassign Modal Ends-->
+    <!--Delete Grievance Starts-->
+    <div class="modal modal-delete fade" id="delgrievance" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Ask Yourself This
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 ">
+                            <div class="form-group">
+                                <p class="control-label">Do I want to delete this Grievance? </p>
+                                <p class="control-label">Attention !: Any Associated Involved/Witnesses/Notes will also be deleted. </p>
+                                <br />
+                                <label class="control-label">Comments</label>
+                                <textarea type="textarea" id="delete_grievance" class="form-control delete_grievance_tinymce"></textarea>
+                                <span class="small text-right counter delete_grievance_character_count">10000 of 10000 characters remaining</span>
+                                <span class="get-character-count"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <a asp-controller="GrievanceSummary" asp-action="Summary">
+                                <div type="submit" class="btn btn-delete btn-icon btn-danger pull-left">
+                                    <span class="icon"></span>
+                                    <span>Delete it</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <button type="submit" class="btn btn-default btn-icon btn-stay pull-right" data-dismiss="modal">
+                                <span>Not Yet</span>
+                                <span class="icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Delete Grievance Ends-->
+    <!--Delete A View Note Starts-->
+    <div class="modal modal-delete fade" id="delviewnote" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Ask Yourself This
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3">
+                            <div class="modal-icon text-center">
+                                <i class="fa fa-3x fa-fw ion-trash-b"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-9 text-center">
+                            <p>Do I want to delete this Note?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <a class="btn-waypoint btn-go-forward" data-panel-link="page" data-dismiss="modal">
+                                <div class="btn btn-delete btn-icon btn-danger pull-left">
+                                    <span class="icon"></span>
+                                    <span>Delete it</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <button type="submit" class="btn btn-default btn-icon btn-stay pull-right" data-dismiss="modal">
+                                <span>Not Yet</span>
+                                <span class="icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Delete A View Note Ends-->
+
+  @*<script>
+
+    $(document).ready(function () {
+
+        //TINYMCE INTEGRATION
+
+        handleTinyMCE("new_note", ".new_note_tinymce", ".new_note_character_count", 2000); //ID, CLASSNAME, CHARACTER_COUNT, FINAL COUNT
+        var reassigned_to = '[{"id":"JHN","description":"John Smith"},{"id":"SEA","description":"Sean White"},{"id":"CHR","description":"Chris Gayle"}]';
+        var reassigned_by = '[{"id":"JHN","description":"John Smith"},{"id":"SEA","description":"Sean White"},{"id":"CHR","description":"Chris Gayle"}]';
+        var description_reassigned_to = [];
+        var description_reassigned_by = [];
+        var keyword_reassigned_to = [];
+        var keyword_reassigned_by = [];
+        dropdownsearch(reassigned_to, '#reassigned-to', keyword_reassigned_to, description_reassigned_to);
+        dropdownsearch(reassigned_by, '#reassigned-by', keyword_reassigned_by, description_reassigned_by);
+        datepickerfuturenone("#no-future-reassignment-date");
+        datepickerfuturenone("#no-future-investigation-sent-date");
+        datepickerfuturenone("#no-future-investigation-received-date");
+        var tab_navigation = 0;
+        var div1 = $(".assignment-details-section");
+        var div2 = $(".initial-review-section");
+        var div3 = $(".initial-response-section");
+        var div4 = $(".assignment-notes-section");
+        $('.assignment-details-section').show();
+        $('.initial-review-section').hide();
+        $('.initial-response-section').hide();
+        $('.assignment-notes-section').hide();
+        $('.assignment-details-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+            div2.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.assignment-details-section').show(1000);
+            div1.animate({ opacity: '1.0' }, "slow");
+            $('.initial-review-section').hide(1000);
+            $('.initial-response-section').hide(1000);
+            $('.assignment-notes-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+
+        });
+        $(".investigation-cancel-btn").click(function () {
+            $("#investigation-cancel-modal").show();
+
+        });
+
+        $(".investigation-yes-btn").click(function () {
+            $("#investigation-modal").hide();
+           $(".modal-backdrop").hide();
+
+        });
+
+
+        $('.initial-review-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+            div1.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.initial-review-section').show(1000);
+            div2.animate({ opacity: '1.0' }, "slow");
+            $('.assignment-details-section').hide(1000);
+            $('.initial-response-section').hide(1000);
+            $('.assignment-notes-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+
+        $('.initial-response-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+            div1.animate({ opacity: '0.4' }, "slow");
+            div2.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.initial-response-section').show(1000);
+            div3.animate({ opacity: '1.0' }, "slow");
+            $('.assignment-details-section').hide(1000);
+            $('.initial-review-section').hide(1000);
+            $('.non-offender-associations').hide(1000);
+            $('.assignment-notes-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+        $('.assignment-notes-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+            div1.animate({ opacity: '0.4' }, "slow");
+            div2.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            $('.assignment-notes-section').show(1000);
+            div4.animate({ opacity: '1.0' }, "slow");
+            $('.assignment-details-section').hide(1000);
+            $('.initial-review-section').hide(1000);
+            $('.initial-response-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+    });
+
+    </script>*@

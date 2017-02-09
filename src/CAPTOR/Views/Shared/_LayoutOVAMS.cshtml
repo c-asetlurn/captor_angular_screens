@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>@ViewBag.Title - CAPTOR</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    @{var env = Environment.GetEnvironmentVariable("ENV"); }
+    <link rel='shortcut icon' type='image/x-icon' href="~/Content/img/favicon.ico" />
+    <!--Plugin Stylesheets-->
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <link href="~/Content/plugins/plugin-bundle-top.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/Content/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/icomoon/css/icomoon.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/jquery-tag-it/css/jquery.tagit.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/slick/slick/slick.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/slick/slick/slick-theme.min.css" rel="stylesheet" />
+        <link href="~/Content/plugins/prettyPhoto/css/prettyPhoto.min.css" rel="stylesheet" />
+        <link href="~/Content/css/flip.css" rel="stylesheet" />
+    }
+    <!--Custom Stylesheets-->
+
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <link href="~/Content/css/bundle-apps.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/Content/css/animate.min.css" rel="stylesheet" />
+        <link href="~/Content/css/main.min.css" rel="stylesheet" />
+        <link href="~/Content/css/tooltip.min.css" rel="stylesheet" />
+    }
+    <!--Plugin Scripts-->
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <script src="~/Content/plugins/bundle-plugin-top.min.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/plugins/jquery/jquery-2.1.4.min.js"></script>
+        <script src="~/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    }
+
+    <!--Custom Scripts-->
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <script src="~/Content/js/bundle-apps-top.min.js"></script>
+        <script src="~/lib/angular/angular.min.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/js/apps-validation.js"></script>
+        <script src="~/Content/js/apps-dropdown.js"></script>
+
+        //libs strat
+        <script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular-route/angular-route.min.js"></script>
+        <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+        @*<script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>*@
+        @*<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>*@
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.4.0.js"></script>
+        //libs ends
+        <script src="~/app.module.js"></script>
+        //controllers start
+        <script src="~/OVAMS/ovamsctrl.js"></script>
+        <script src="~/common/RightsideBar/rightsideCtrl.js"></script>
+        //controllers end
+        
+        <script src="~/common/RightsideBar/profileviewDirective.js"></script>
+        <script src="~/common/RightsideBar/offenderProfileviewDirective.js"></script>
+        <script src="~/common/Directives/infiniteScrolling.js"></script>
+        <script src="~/common/Directives/flip/flip.js"></script>
+        
+
+    }
+    <!-- Need to Replace this code in Future, Just Done for now to help Case Notes Deployment-->
+    <script>
+        var RootURI = "@Url.Content("~")";
+    </script>
+    <!--[if lt IE 9]>
+         <script src="~/Content/crossbrowserjs/bundle-crossbrowser.min.js"></script>
+     <![endif]-->
+
+</head>
+<body class="navbar-default" ng-app="captor"  >
+    <div class="overlay"></div>
+    @*<div id="mySidenav" class="sidenav_abc">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>*@
+    <div id="page-container" class="fade page-container page-header-fixed page-sidebar-fixed page-with-two-sidebar page-footer-fixed page-with-footer page-right-sidebar-fixed page-right-sidebar-toggled">
+        <div id="header" class="header navbar navbar-fixed-top navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="server-info">
+                        <div class="server-item">
+                            <i class="fa fa-fw fa-clock-o"></i> <span> 7/14/2016 1236 hrs</span>
+                        </div>
+                        <div class="server-item">
+                            <i class="fa fa-fw fa-server"></i> <span> MINIONPROD001</span>
+                        </div>
+                    </li>
+                    <li class="dropdown navbar-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="hidden-xs">Minions</span> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li class="my-reports"><a asp-controller="Enterprise" asp-action="Reports"><span> My Reports</span></a></li>
+                            <li class="divider"></li>
+                            <li class="logout"><a asp-controller="Login" asp-action="Login"><span> Log Out</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="right-sidebar-toggle">
+                        <a href="javascript:;" data-click="right-sidebar-toggled">
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="nav">
+                <li class="nav-logo">
+                    <a asp-controller="Dashboard" asp-action="Dashboard" class="logo"><img src="~/Content/img/captorlogo.png" class="logo" alt="" /> </a>
+                </li>
+                <li class="mini-logo">
+                    <a asp-controller="Dashboard" asp-action="Dashboard" class="logo"><img src="~/Content/img/mini-logo.png" class="logo" alt="" /> </a>
+                </li>
+                <li class="divider has-minify-btn">
+                    <a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><span></span></a>
+                </li>
+                <li class="nav-header">Navigation</li>
+                <li class="sidebar-menu-item search-offender">
+                    <a asp-controller="Enterprise" asp-action="OffenderSearch">
+                        <span class="icon"></span>
+                        <span class="icon2"></span>
+                        <span>Individual Reentrant Search</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item ovams-menu has-sub">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <span class="icon"></span>
+                        <span class="icon2"></span>
+                        <span>OVAMS</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sidebar-menu-item">
+                            <a asp-controller="OvamsController" asp-action="newclient" href="newclient">New Application</a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a asp-controller="OvamsController" asp-action="searchClient" href="searchClient">Search Application</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-bg"></div>
+
+        <div id="content" class="content">
+
+            @RenderBody()
+
+            <div id="footer" class="footer">
+                <span class="pull-right">
+                    <a href="javascript:;" class="btn-scroll-to-top" data-click="scroll-top">
+                        <i class="fa ion-chevron-up"></i> <span class="hidden-xs">Back to Top</span>
+                    </a>
+                </span>
+                &copy; 2016 <b>CAPTOR - Commonwealth of Pennsylvania</b> All Rights Reserved
+            </div>
+        </div>
+        <ng-include src="'../common/RightsideBar/clientProfileBanner.html'"></ng-include>
+        <div class="sidebar-bg-right"></div>
+        
+    </div>
+  
+    <!--Plugin Scripts-->
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <script src="~/Content/plugins/plugin-bundle-bottom.min.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+        <script src="~/Content/plugins/noframework.waypoints.min.js"></script>
+        <script src="~/Content/plugins/jquery.sticky.min.js"></script>
+        <script src="~/Content/plugins/bootstrap-notify-master/bootstrap-notify.min.js"></script>
+        <script src="~/Content/plugins/jquery.backstretch.min.js"></script>
+        <script src="~/Content/plugins/tinymce/tinymce.min.js"></script>
+        <script src="~/Content/plugins/jquery.master-flip/jquery.flip.min.js"></script>
+        <script src="~/Content/plugins/slick/slick/slick.min.js"></script>
+        <script src="~/Content/plugins/prettyPhoto/js/jquery.prettyPhoto.min.js"></script>
+        <script src="~/Content/plugins/timepicker/jquery-ui-timepicker-addon.js"></script>
+        <script src="~/Content/plugins/timepicker/jquery-ui-sliderAccess.js"></script>
+        <script src="~/Content/plugins/multiselect-dropdown/js/MultiSelectDropdown.js"></script>
+    }
+    <!-- Custom Scripts  -->
+    @if (!string.IsNullOrEmpty(env) && (env.ToLower().Trim() == "dev" || env.ToLower().Trim() == "sit" || env.ToLower().Trim() == "uat" || env.ToLower().Trim() == "prod"))
+    {
+        <script src="~/Content/js/bundle-apps-bottom.min.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/js/apps-form-plugins.js"></script>
+        <script src="~/Content/js/apps-custom.js"></script>
+        <script src="~/Content/js/apps-wysiwyg.js"></script>
+        <script src="~/Content/js/apps-waypoint.js"></script>
+        <script src="~/Content/js/apps-datetimepicker.js"></script>
+    }
+    <script>
+        $(document).ready(function () {
+            App.init();
+            FormPlugins.init();
+            handleTinyMCEDisabled();
+            Waypoints.init();
+        });
+        function openNav() {
+    
+           //var toggleWidth = $(".sidebar-right").width() > 250 ? "250px" : "100%";
+           //$('.sidebar-right').css({ width: toggleWidth });
+           // $("#sidebar").fadeToggle("slow", "linear");
+           // $(".sidebar-bg").fadeToggle("slow", "linear");
+           // $('#header').fadeToggle("slow", "linear");
+           // $(".closebtn").toggleClass("show");
+           // $(".full").toggleClass("show");
+        }
+        
+    </script>
+    <style>
+ 
+
+
+
+
+       
+    </style>
+</body>
+
+</html>

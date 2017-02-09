@@ -1,0 +1,695 @@
+﻿@{
+    Layout = "LayoutGTS";
+    ViewData["Title"] = "Grievance Summary";
+}
+<!-- Page Header -->
+<div class="row">
+    <div class="col-xs-8 col-md-8">
+        <h1 class="grievance-page-header page-header col-xs-12"><span>Grievance Summary</span></h1>
+    </div>
+</div>
+<!--Grievances Starts-->
+<div class="row page">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <div class="row widget-header-align">
+                    <div class="col-xs-8">
+                        <h4>Grievances</h4>
+                    </div>
+                    <div class="col-xs-4 attempted grievance-number text-right">
+                        <label>Total Grievances:</label>
+                        <span>26</span>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body clearfix">
+                <div class="row tiles grievance-summary-tiles">
+                    <div class="filter-icon col-sm-12">
+                        <i class="fa fa-2x fa-fw fa-filter"></i>
+                        <label class="control-label">Filter Grievances</label>
+                    </div>
+                    <div class="form-input-flat">
+                        <div class="col-sm-12 col-md-4 m-t-10">
+                            <label class="control-label">Grievance Number</label>
+                            <input type="text" class="form-control" value="" placeholder="Type The Grievance Number">
+                        </div>
+                        <div class="col-sm-12 col-md-8 m-t-10 date-range-grid">
+                            <label class="control-label">Received Date Range</label>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 start-date-grid">
+                                    <div class="input-group controls">
+                                        <input type="text" name="start_date_no_time" id="start-date-no-time" value="" class="form-control" placeholder="MM/DD/YYYY">
+                                        <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-0 text-center to-grid">
+                                    <span><label> To </label></span>
+                                </div>
+                                <div class="col-sm-6 col-md-6 end-date-grid">
+                                    <div class="input-group controls">
+                                        <input type="text" name="end_date_no_time" id="end-date-no-time" value="" class="form-control" placeholder="MM/DD/YYYY">
+                                        <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 m-t-10">
+                            <label class="control-label">Frivolous</label>
+                            <div class="inline-radios block">
+                                <div class="radio-group radio-inline">
+                                    <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+                                    <label for="radio-1" class="radio-custom-label">All</label>
+                                </div>
+                                <div class="radio-group radio-inline">
+                                    <input id="radio-2" class="radio-custom " name="radio-group" type="radio">
+                                    <label for="radio-2" class="radio-custom-label">Yes</label>
+                                </div>
+                                <div class="radio-group radio-inline">
+                                    <input id="radio-3" class="radio-custom" name="radio-group" type="radio">
+                                    <label for="radio-3" class="radio-custom-label">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 m-t-10">
+                            <div class="input-controls multiselect-form-group">
+                                <label class="control-label">Category</label>
+                                <input id="summary-category" data-id="100" class="form-control multiselect-form-control" type="text" placeholder="Select At least One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 m-t-10">
+                            <div class="input-controls">
+                                <label class="control-label">Facility</label>
+                                <input type="text" data-id="1" name="summary_facility" required="" id="summary-facility" class="form-control" autocomplete="off" placeholder="Type the Facility" />
+                                <span class="input-group-addon right dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 pull-right">
+                            <div class="col-sm-12 col-md-5 grievance-search pull-right">
+                                <div class="btn btn-search btn-default btn-icon pull-right">
+                                    <span>Search Grievances</span>
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5 grievance-search pull-right">
+                                <div class="btn btn-clear btn-default btn-icon pull-right">
+                                    <span>Reset Filters</span>
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section>
+                        <div class="col-xs-12 load-more-tiles">
+                            <div class="col-sm-5 col-md-4">
+                                <div class="card">
+                                    <div class="front add-tile">
+                                        <div class="content-panel">
+                                            <div class="tile-body body-only">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="plus-icon">
+                                                            <a asp-controller="GrievanceSummary" asp-action="CreateGrievance">
+                                                                <div class="ion-plus"></div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>639854</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Grievance Rcvd</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>07/01/2016</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>Cable Services</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>YES</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>YES</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a href="/GTS/ViewGrievance" asp-controller="GTS" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">Quehanna Boot Camp</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>1st Rejection</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/01/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>Mental Health</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>YES</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>NO</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>571235</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">Houtzdale</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>FM Response Comp</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>04/16/2013</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>Act 85</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>NO</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>NO</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>457590</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">Graterford</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Remanded Response Comp (SOIGA)</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>03/30/2013</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>Child Support</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>NO</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>YES</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <h4>234567</h4>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <h4 class="pull-right">CAMP HILL</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Status:</label> <span>Rejected</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status Date:</label> <span>01/12/2014</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Category:</label> <span>A1</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Frivolous:</label> <span>Yes</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Withdrawn:</label> <span>Yes</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12">
+                                                        <a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="tile-load-more">
+                        <i class="ion ion-load-a">  Loading</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Grievances Ends-->
+<script>
+    //This code helps to load tile on page scroll
+    var load_counter = 0;
+    $(window).scroll(function () {
+        if ($(document).height() <= $(window).scrollTop() + $(window).height()) {
+            load_counter = load_counter + 1;
+                if (load_counter < 10) {
+                    $load = $('  <div class="col-sm-5 col-md-4 tile-grid"><div class="card"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-7"><h4>234567</h4></div><div class="col-xs-5"><h4>CAMP HILL</h4></div></div></div><div class="tile-body"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Status:</label> <span>Rejected</span></div><div><label>Status Date:</label> <span>01/12/2014</span></div><div><label>Category:</label> <span>A1</span></div><div><label>Frivolous:</label> <span>Yes</span></div><div><label>Withdrawn:</label> <span>Yes</span></div></div></div></div></div><div class="tile-footer btn-icons" style="backface-visibility: hidden;"><div class="clearfix btn-hide" style="backface-visibility: hidden;"><div class="col-xs-12" style="backface-visibility: hidden;"><a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views" style="backface-visibility: hidden;"> VIEW</a></div></div></div></div></div></div></div>  <div class="col-sm-5 col-md-4 tile-grid"><div class="card"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-7"><h4>234567</h4></div><div class="col-xs-5"><h4>CAMP HILL</h4></div></div></div><div class="tile-body"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Status:</label> <span>Rejected</span></div><div><label>Status Date:</label> <span>01/12/2014</span></div><div><label>Category:</label> <span>A1</span></div><div><label>Frivolous:</label> <span>Yes</span></div><div><label>Withdrawn:</label> <span>Yes</span></div></div></div></div></div><div class="tile-footer btn-icons" style="backface-visibility: hidden;"><div class="clearfix btn-hide" style="backface-visibility: hidden;"><div class="col-xs-12" style="backface-visibility: hidden;"><a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views" style="backface-visibility: hidden;"> VIEW</a></div></div></div></div></div></div></div>  <div class="col-sm-5 col-md-4 tile-grid"><div class="card"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-7"><h4>234567</h4></div><div class="col-xs-5"><h4>CAMP HILL</h4></div></div></div><div class="tile-body"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Status:</label> <span>Rejected</span></div><div><label>Status Date:</label> <span>01/12/2014</span></div><div><label>Category:</label> <span>A1</span></div><div><label>Frivolous:</label> <span>Yes</span></div><div><label>Withdrawn:</label> <span>Yes</span></div></div></div></div></div><div class="tile-footer btn-icons" style="backface-visibility: hidden;"><div class="clearfix btn-hide" style="backface-visibility: hidden;"><div class="col-xs-12" style="backface-visibility: hidden;"><a asp-controller="GrievanceSummary" asp-action="ViewGrievance" class="btn-footer btn-views" style="backface-visibility: hidden;"> VIEW</a></div></div></div></div></div></div></div>').hide();
+                    $('.load-more-tiles').append($load);
+                    $load.fadeIn('slow');
+                }
+                else {
+                    $(".tile-load-more").hide();
+                }
+        }
+    });
+    //Activate Facility Dropdown
+    var summaryfacility = '[{"Id":"ALB","Description":"ALBION"},{"Id":"BEN","Description":"BENNER TOWNSHIP"},{"Id":"CAM","Description":"CAMP HILL"},{"Id":"CBS","Description":"CAMBRIDGE SPRINGS"},{"Id":"CHS","Description":"CHESTER"},{"Id":"COA","Description":"COAL TOWNSHIP"},{"Id":"CRE","Description":"CRESSON"},{"Id":"DAL","Description":"DALLAS"},{"Id":"FRA","Description":"FRACKVILLE"},{"Id":"FRS","Description":"FOREST"},{"Id":"FYT","Description":"FAYETTE"},{"Id":"GRA","Description":"GRATERFORD"},{"Id":"GRE","Description":"GREENSBURG"},{"Id":"GRN","Description":"GREENE"},{"Id":"HOU","Description":"HOUTZDALE"},{"Id":"HUN","Description":"HUNTINGDON"},{"Id":"LAU","Description":"LAUREL HIGHLANDS"},{"Id":"MAH","Description":"MAHANOY"},{"Id":"MER","Description":"MERCER"},{"Id":"MI1","Description":"MICHIGAN 1"},{"Id":"MUN","Description":"MUNCY"},{"Id":"PIT","Description":"PITTSBURGH"},{"Id":"PNG","Description":"PINE GROVE"},{"Id":"QUE","Description":"QUEHANNA BOOTCAMP"},{"Id":"RET","Description":"RETREAT"},{"Id":"ROC","Description":"ROCKVIEW"},{"Id":"SMI","Description":"SMITHFIELD"},{"Id":"SMR","Description":"SOMERSET"},{"Id":"WAM","Description":"WAYMART"},{"Id":"WAY","Description":"WAYNESBURG"}]';
+    var description_facility = [];
+    var keyword_facility = [];
+    dropdownsearch(summaryfacility, '#summary-facility', keyword_facility, description_facility);//DATA-ID = 1
+
+    $(document).ready(function () {
+        multiselectenabledie();//Call This Function only on Multiselect Page.
+        // Passing Data For Multiselect Dropdown
+        var first_dropdown_json = '[{"Id":"AbusLang","Description":"Abusive Language"},{"Id":"AllegAbuse","Description":"Allegation of Abuse"},{"Id":"ExcessFrce","Description":"Excessive Force"},{"Id":"Harassment","Description":"Harassment"},{"Id":"ProblmsStf","Description":"Problems with Staff"},{"Id":"ProbStfBO","Description":"Problems with Staff-Business Office"},{"Id":"ProbStfEdu","Description":"Problems with Staff-Education"},{"Id":"ProbStfLib","Description":"Problems with Staff-Library"},{"Id":"ProbStfMed","Description":"Problems with Staff-Medical"},{"Id":"ProbStfOff","Description":"Problems with Staff-Officers"},{"Id":"ProbStfUM","Description":"Problems with Staff-Unit Management"},{"Id":"Property","Description":"Property"},{"Id":"ProStfActi","Description":"Problems with Staff-Activities"},{"Id":"ProStfDiet","Description":"Problems with Staff-Dietary"},{"Id":"ProStfHrEx","Description":"Problems with Staff-Hearing Examiner"},{"Id":"ProStfMail","Description":"Problems with Staff-Mailroom"},{"Id":"ProStfMain","Description":"Problems with Staff-Maintenance"},{"Id":"ProStfMngl","Description":"Problems with Staff-Managerial"},{"Id":"ProStfPsyc","Description":"Problems with Staff-Psychology"},{"Id":"ProStfRcrd","Description":"Problems with Staff-Records"},{"Id":"ProStfRelg","Description":"Problems with Staff-Religious"},{"Id":"Publiction","Description":"Publications"},{"Id":"SexAsltInm","Description":"Sexual Assault-Inmate"},{"Id":"SexAsltStf","Description":"Sexual Assault-Staff"},{"Id":"SexHaraInm","Description":"Sexual Harassment-Inmate"},{"Id":"SexHaraStf","Description":"Sexual Harassment-Staff"}]';
+        var description_first_dropdown = [];
+        var keyword_first_dropdown = [];
+        //Trigger Multiselectdropdown Function For each Dropdown Field
+        multiselectdropdownsearch(first_dropdown_json, '#summary-category', keyword_first_dropdown, description_first_dropdown); //Data-ID = 100
+        daterangepicker("#start-date-no-time", "#end-date-no-time");
+    });
+</script>

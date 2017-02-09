@@ -1,0 +1,7 @@
+﻿.red-tooltip + .tooltip > .tooltip-inner {
+    background-color: #A02417 !important;
+}
+
+.red-tooltip + .tooltip > .tooltip-arrow {
+    border-bottom-color: #A02417 ;        
+}

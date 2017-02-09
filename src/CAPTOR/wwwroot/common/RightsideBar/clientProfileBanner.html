@@ -1,0 +1,97 @@
+﻿<div id="sidebar-right" class="sidebar-right animate_fade" ng-class="{'animate-slide':(sidebar.slide_client || sidebar.slide_offender)}" ng-controller="rightsideCtrl as sidebar">
+
+    <div data-scrollbar="true" data-height="100%" class="animate_fade" ng-show="!(sidebar.slide_client || sidebar.slide_offender)">
+        <ul class="nav nav-tabs" role="tablist">
+            <!--@*
+            <li class="col-xs-4 no-padding hidden"><a href="#offender" data-target="#offender" data-toggle="tab">Reentrant</a></li>
+            <li class="col-xs-4 no-padding hidden"><a href="#today" data-target="#today" data-toggle="tab">Today</a></li>*@-->
+
+            <li class="col-xs-12 no-padding active">
+
+                <a href="#appReview" data-target="#appReview" data-toggle="tab">
+                    Review
+                    <!--@*<button class="btn btn-default btn-icon btn-save" onclick="openNav()">
+                        <span>Max</span>
+                        <span class="icon"></span>
+                    </button>*@-->
+                    <span class="full" style="font-size:16px;cursor:pointer" ng-click="sidebar.openNav_client()">&#9776;</span>
+                </a>
+
+
+                <!--@*<span style="cursor:pointer;color:#ddd" onclick="openNav()"><icon class="glyphicon glyphicon-resize-full"></icon></span>*@-->
+
+
+
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            
+            <!-- client Profile -->
+            <div class="tab-pane active" id="appReview">
+                <ul class="nav">
+
+                    <li>
+                        <ul class="details-list">
+                            <li>
+                                <label>Full Name</label>
+                                <span>Parker</span>
+                            </li>
+                            <li>
+                                <label>DOC#</label>
+                                <a>10233</a>
+                                <span class="full" style="font-size:16px;cursor:pointer" ng-click="sidebar.openNav_offender()">&#9776;</span>
+                            </li>
+                            <li>
+                                <label>Reg#</label>
+                                <span>11100111-000</span>
+                            </li>
+                            <li>
+                                <label>Point of Contact</label>
+                                <span>Bills Thomas Owner</span>
+                            </li>
+                            <li>
+                                <label>ACP# </label>
+                                <span>203</span>
+                            </li>
+                            <li>
+                                <label>Sex </label>
+                                <span>Male</span>
+                            </li>
+                            <li>
+                                <label>Address</label>
+                                <<p>9280 Cherry Blossom Avenue, William Sport,PA 19378</p>
+                            </li>
+                            <li>
+                                <label>Primary Phone</label>
+                                <span>Cell# 717-236-5463</span>
+                            </li>
+                            <li>
+                                <label>Primary Phone </label>
+                                <span>Karen Laird</span>
+                            </li>
+                            <li>
+                                <label>Primary Email </label>
+                                <span>Parker@gmail.com</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Organization Client -->
+        </div>
+    </div>
+    <div class="animate_fade" ng-show="sidebar.slide_client">
+        
+        <full-profile-view type="sidebar.type">
+            <a href="javascript:void(0)" class="closebtn" ng-click="sidebar.openNav_client()">&times;</a>
+        </full-profile-view>
+    </div>
+    <div class="animate_fade" ng-show="sidebar.slide_offender">
+
+        <offender-full-profile-view type="sidebar.type">
+            <a href="javascript:void(0)" class="closebtn" ng-click="sidebar.openNav_offender()">&times;</a>
+        </offender-full-profile-view>
+    </div>
+
+</div>

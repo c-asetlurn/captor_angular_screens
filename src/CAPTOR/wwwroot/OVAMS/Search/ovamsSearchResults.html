@@ -1,0 +1,399 @@
+﻿<div class="widget widget-form ims-search-filtered-results ovams_search">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Search Results</h4>
+            </div>
+            <div class="col-sm-12 col-md-2 pull-right">
+                <div class="btn btn-download btn-default btn-icon pull-right">
+                    <span>Export All</span>
+                    <span class="icon"></span>
+                </div>
+            </div>
+            <div class="col-xs-2 attempted text-right pull-right">
+                <label>Filtered Results:</label>
+                <span>33</span>
+            </div>
+            
+        </div>
+    </div>
+    <div class="widget-body clearfix" ng-show="result">
+        <div class="form-input-flat">
+            <div class="row tiles comment_tile">
+                <div class="col-xs-12 load-more-tiles" infinite-scroll='loadmoretiles()' infinite-scroll-distance='2'>
+                     
+                    <div class="col-sm-5 col-md-4 tile-grid" ng-repeat="data in tilesArray track by $index ">
+                        <flippy class="fancy card card-search-results add-client" ng-if="$index==0">
+
+                            <flippy-front>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header" style="
+                                                 background: #C27719;
+                                                 border-bottom: none;
+                                                 ">
+                                                <div class="row" style="
+                                                     visibility: hidden;
+                                                     ">
+                                                    <div class="col-xs-8">
+                                                        <h4 style="visibility: hidden;">Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                    <div class="tile-info" style="backface-visibility: hidden;">
+                                                        <a href="" style="backface-visibility: hidden;">
+                                                            <div class="ion-plus add-sign btn-waypoint btn-go-forward" data-panel-link="page3" style="backface-visibility: hidden;text-align: center;font-size:120px !important; margin:10px !important;"></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </flippy-front>
+
+
+
+                        </flippy>
+                        <flippy class="fancy card card-search-results"
+                                flip="['click']"
+                                flip-back="['click']"
+                                duration="800"
+                                timing-function="ease-in-out">
+
+                            <flippy-front>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Name:</label> <span>Parker</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Sex:</label> <span>Male</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>DOB:</label> <span>7/71980 (37)</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Address1:</label> <span>Edison Street</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>City, State:</label> <span>Philadelphia ,PA </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>County:</label> <span>Philadelphia</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Type(s):</label> <span>SORNA</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="pull-left">
+                                                        <a class="btn-footer btn-views" ng-click="flip()"> Flip</a>
+                                                    </div>
+                                                    <div class="col-xs-6 pull-right" >
+                                                        <a class="btn-footer">  Select</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </flippy-front>
+
+                            <flippy-back>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <table id="borderless" class="table">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th>OFFENDER NAME</th>
+                                                                    <th>SID</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>JACKSON, JEREMY JOSEPH</td>
+                                                                    <td>20235689</td>
+                                                                   
+
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td>WILLIAM,JACK</td>
+                                                                    <td>90856356</td>
+                                                                  
+
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="pull-left">
+                                                        <a class="btn-footer btn-views" ng-click="flip()"> Flip</a>
+                                                    </div>
+                                                    <div class="col-xs-6 pull-right">
+                                                        <a class="btn-footer">  Select</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </flippy-back>
+
+                        </flippy>
+                        
+                        
+                    </div>
+                  
+                   
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <div class="tile-load-more">
+                    <i class="ion ion-load-a">  Loading</i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="widget-body clearfix" ng-show="!result">
+        <div class="form-input-flat">
+            <div class="row tiles comment_tile">
+                <div class="col-xs-12 load-more-tiles" infinite-scroll='loadmoretiles()' infinite-scroll-distance='2'>
+
+                    <div class="col-sm-5 col-md-4 tile-grid" ng-repeat="data in tilesArray track by $index ">
+                        <flippy class="fancy card card-search-results add-client" ng-if="$index==0">
+
+                            <flippy-front>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header" style="
+                                                 background: #C27719;
+                                                 border-bottom: none;
+                                                 ">
+                                                <div class="row" style="
+                                                     visibility: hidden;
+                                                     ">
+                                                    <div class="col-xs-8">
+                                                        <h4 style="visibility: hidden;">Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                    <div class="tile-info" style="backface-visibility: hidden;">
+                                                        <a href="" style="backface-visibility: hidden;">
+                                                            <div class="ion-plus add-sign btn-waypoint btn-go-forward" data-panel-link="page3" style="backface-visibility: hidden;text-align: center;font-size:120px !important; margin:10px !important;"></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </flippy-front>
+
+
+
+                        </flippy>
+                        <flippy class="fancy card card-search-results"
+                                flip="['click']"
+                                flip-back="['click']"
+                                duration="800"
+                                timing-function="ease-in-out">
+
+                            <flippy-front>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Name:</label> <span>Wall-Mart Supercenter #3330</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Point of Contact:</label> <span>Bob Jones General 3400 Hartzland rd Camphill, PA 17011</span>
+
+                                                            </div>
+                                                            <div>
+                                                                <label>County</label> <span>Cumberland</span>
+                                                            </div>
+                                                      
+                                                            <div>
+                                                                <label>Type(s):</label> <span>Victim Services</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="pull-left">
+                                                        <a class="btn-footer btn-views" ng-click="flip()"> Flip</a>
+                                                    </div>
+                                                    <div class="col-xs-6 pull-right">
+                                                        <a class="btn-footer">  Select</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </flippy-front>
+
+                            <flippy-back>
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>Reg#:56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <table id="borderless" class="table">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th>OFFENDER NAME</th>
+                                                                    <th>SID</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>JACKSON, JEREMY JOSEPH</td>
+                                                                    <td>20235689</td>
+
+
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td>WILLIAM,JACK</td>
+                                                                    <td>90856356</td>
+
+
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="pull-left">
+                                                        <a class="btn-footer btn-views" ng-click="flip()"> Flip</a>
+                                                    </div>
+                                                    <div class="col-xs-6 pull-right">
+                                                        <a class="btn-footer">  Select</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </flippy-back>
+
+                        </flippy>
+
+
+                    </div>
+
+
+
+
+
+
+
+                </div>
+                <div class="tile-load-more">
+                    <i class="ion ion-load-a">  Loading</i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

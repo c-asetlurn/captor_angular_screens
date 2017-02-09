@@ -1,0 +1,2231 @@
+﻿@{
+    Layout = "_LayoutOVAMS";
+    ViewData["Title"] = "Ovams Search";
+}
+<!-- Page Header -->
+<div class="row">
+    <div class="col-xs-8 col-md-8">
+        <h1 class="case-note-list-page-header page-header col-xs-12"><span>OVA Search</span></h1>
+    </div>
+</div>
+<div class="row page">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <ul class="nav nav-pills nav-justified nav-pills-primary nav-pills-inline">
+                    <li data-id="1111" class="active"><a href="#" class="person-details-tab" data-toggle="tab">Individual <br />&nbsp;</a></li>
+                    <li data-id="1112"><a href="#" class="stg-affiliation-tab" data-toggle="tab">STG<br /> Organization </a></li>
+                 </ul>
+
+                <p class="help-block text-muted m-b-0 toggle-filter-info">
+                    Choose a Filter by Toggling the Fields
+                </p>
+                <p class="help-block text-muted m-b-0 expand-filter-info">
+                    Click on View Filters to See More Fields
+                </p>
+                <div class="col-xs-3 attempted text-right pull-right inactive-activated">
+                    <label>Historical STG Records Only:</label>
+                    <span class="inactive-yes">YES</span>
+                    <span class="inactive-no">NO</span>
+                </div>
+                <div class="col-xs-3 attempted text-right pull-right inactive-records-activated">
+                    <label>INACTIVE:</label>
+                    <span class="inactive-records-yes">YES</span>
+                    <span class="inactive-records-no">NO</span>
+                </div>
+                <!--This is Placeholder Div to give Size for Multiselect Dropdown-->
+                <div class="col-sm-12 col-md-4 pull-right animation-enabled-for-multiselect" data-id="999">
+                    <div class="form-group input-controls multiselect-form-group">
+                    </div>
+                </div>
+
+            </div>
+            <div class="widget-body clearfix">
+                <div class="form-input-flat">
+                    <div class="ims-toggle-filter-section">
+                        <div class="field-heading"><span>Fields:</span></div>
+
+                        <div class="row ims-search-person-section">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Reentrant #</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-id">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Reentrant Nick Name</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-nick-name">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Reentrant Tattoo</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-tattoo">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Activity Type</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-activity-type">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3 inactive-records-controls">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Inactive</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-inactive-records">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ims-search-stg-section">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">STG</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-stg-affiliation-stg">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Subset</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-stg-affiliation-subset">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Rank</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-stg-affiliation-rank">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Leader</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-stg-affiliation-leader">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Status</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-stg-affiliation-status">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3 inactive-controls">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Historical STG Records Only</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-stg-historical-records">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ims-search-facility-section">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Facility</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-facility-facility">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Building</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-facility-building">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Section</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-facility-section">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ims-search-reentrant-section">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Address 1</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-address1">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Address 2</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-address2">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">City</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-city">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">State</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-state">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Zip</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-zip">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Reentrant Release Daterange</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-release-daterange">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Committing County</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-details-committing-county">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ims-search-selected-section">
+                        <div class="filter-icon col-sm-12">
+                            <i class="fa fa-2x fa-fw fa-filter"></i>
+                            <label class="control-label">Selected Filters</label>
+                        </div>
+                        <div class="col-xs-12 col-md-4 person-reentrant">
+                            <div class="form-group">
+                                <label class="control-label">Reentrant#</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant"></i></a></span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 person-reentrant-nickname">
+                            <div class="form-group">
+                                <label class="control-label">Reentrant Nick Name</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant-nickname"></i></a></span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 person-reentrant-tattoo">
+                            <div class="form-group">
+                                <label class="control-label">Reentrant Tattoo</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant-tattoo"></i></a></span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 person-non-reentrant-association-name">
+                            <div class="form-group">
+                                <label class="control-label">Non-Reentrant Association Name</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-non-reentrant-association-name"></i></a></span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 person-activity-type">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Activity Type</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-activity-type"></i></a></span>
+                                <input id="search-activity-type" data-id="100" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 person-activity-start-date">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label typeof="date" class="control-label">Filter By Activity Date</label>
+                                    <div class="input-group controls date" data-date-format="mm/dd/yyyy">
+                                        <input type="text" class="form-control">
+                                        <span typeof="date" class="input-group-addon right date-field"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 m-t-30 text-center person-activity-start-date">
+                                    <label typeof="date" class="control-label">&nbsp;</label>
+                                    <span><label> to </label></span>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label typeof="date" class="control-label">&nbsp;</label>
+                                    <div class="input-group controls date" data-date-format="mm/dd/yyyy">
+                                        <input type="text" class="form-control">
+                                        <span typeof="date" class="input-group-addon right date-field"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 stg-affiliation-stg">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">STG</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-stg-affiliation-stg"></i></a></span>
+                                <input id="search-stg" data-id="101" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 stg-affiliation-subset">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Subset</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-stg-affiliation-subset"></i></a></span>
+                                <input id="search-subset" data-id="102" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 stg-affiliation-rank">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Rank</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-stg-affiliation-rank"></i></a></span>
+                                <input id="search-rank" data-id="103" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 stg-affiliation-leader">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Leader</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-stg-affiliation-leader"></i></a></span>
+                                <input id="search-leader" data-id="104" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 stg-affiliation-status">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Status</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-stg-affiliation-status"></i></a></span>
+                                <input id="search-status" data-id="105" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 facility-facility">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Facility</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-facility-facility"></i></a></span>
+                                <input id="search-facility" data-id="106" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 facility-building">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Building</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-facility-building"></i></a></span>
+                                <input id="search-building" data-id="107" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 facility-section">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Section</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-facility-section"></i></a></span>
+                                <input id="search-section" data-id="108" class="form-control multiselect-form-control" type="text" placeholder="Select Atleast One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-address1">
+                            <div class="form-group">
+                                <label class="control-label">Address Line 1</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-address1"></i></a></span>
+                                <input type="text" id="street-address" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-address2">
+                            <div class="form-group">
+                                <label class="control-label">Address Line 2</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-address2"></i></a></span>
+                                <input type="text" id="apt-number" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-city">
+                            <div class="form-group">
+                                <label class="control-label">City</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-city"></i></a></span>
+                                <input type="text" id="city-name" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-state">
+                            <div class="form-group input-controls">
+                                <label class="control-label">State</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-state"></i></a></span>
+                                <input type="text" name="state_name" required="" id="state-name" class="form-control" autocomplete="off" placeholder="Type the State" />
+                                <span class="input-group-addon right dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-zip">
+                            <div class="form-group">
+                                <label class="control-label">Zip</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-zip"></i></a></span>
+                                <input type="text" id="zip-code" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-release-start-date">
+                            <div class="form-group">
+                                <label typeof="date" class="control-label">Reentrant Release Start Date</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-release-start-date"></i></a></span>
+                                <div class="input-group controls date" data-date-format="mm/dd/yyyy">
+                                    <input type="text" class="form-control">
+                                    <span typeof="date" class="input-group-addon right date-field"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-release-end-date">
+                            <div class="form-group">
+                                <label typeof="date" class="control-label">Reentrant Release End Date</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-release-end-date"></i></a></span>
+                                <div class="input-group controls date" data-date-format="mm/dd/yyyy">
+                                    <input type="text" class="form-control">
+                                    <span typeof="date" class="input-group-addon right date-field"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 reentrant-details-committing-county">
+                            <div class="form-group input-controls multiselect-form-group">
+                                <label class="control-label">Committing County</label>
+                                <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-reentrant-details-committing-county"></i></a></span>
+                                <input id="search-committing-county" data-id="109" class="form-control multiselect-form-control" type="text" placeholder="Select At Least One">
+                                <span class="input-group-addon right multiselect-dropdown-icon"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 pull-right filter-button">
+                            <div class="col-sm-12 col-md-4 ims-selected-search pull-right">
+                                <div class="btn btn-search btn-default btn-icon pull-right">
+                                    <span>Search</span>
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 ims-reset-filter pull-right">
+                                <div class="btn btn-clear btn-default btn-icon pull-right">
+                                    <span>Reset Filters</span>
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 ims-search-filter-minimize pull-right">
+                                <div class="btn btn-shrink btn-default btn-icon pull-right">
+                                    <span>Hide Filters</span>
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ims-search-expand-section">
+                        <div class="field-heading"><span>Selected Fields:</span></div>
+                        <div class="col-xs-12 col-md-3 search-labelreentrant ims-search-label">
+                            <label>Reentrant#</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelreentrant-nickname ims-search-label">
+                            <label>Reentrant Nick Name</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelreentrant-tattoo ims-search-label">
+                            <label>Reentrant Tattoo</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelnon-reentrant-association-name ims-search-label">
+                            <label>Non-Reentrant Association Name</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelactivity-type ims-search-label">
+                            <label>Activity Type</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelactivity-date-range ims-search-label">
+                            <label>Activity Date Range</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelstg ims-search-label">
+                            <label>STG</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelsubset ims-search-label">
+                            <label>Subset</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelrank ims-search-label">
+                            <label>Rank</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelleader ims-search-label">
+                            <label>Leader</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelstatus ims-search-label">
+                            <label>Status</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelfacility ims-search-label">
+                            <label>Facility</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelbuilding ims-search-label">
+                            <label>Building</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelsection ims-search-label">
+                            <label>Section</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labeladdress-1 ims-search-label">
+                            <label>Address 1</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labeladdress-2 ims-search-label">
+                            <label>Address 2</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelcity ims-search-label">
+                            <label>City</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelstate ims-search-label">
+                            <label>State</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelzip ims-search-label">
+                            <label>Zip</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelreentrant-release-date ims-search-label">
+                            <label>Reentrant Release Daterange</label>
+                        </div>
+                        <div class="col-xs-12 col-md-3 search-labelcommitting-county ims-search-label">
+                            <label>Committing County</label>
+                        </div>
+                        <div class="col-sm-12 col-md-5 ims-search-filter-expand pull-right">
+                            <div class="btn btn-expand btn-default btn-icon pull-right">
+                                <span>View Filters</span>
+                                <span class="icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="widget widget-form ims-search-filtered-results">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>Search Results</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pull-right">
+                        <div class="btn btn-download btn-default btn-icon pull-right">
+                            <span>Export All</span>
+                            <span class="icon"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 attempted text-right pull-right">
+                        <label>Filtered Results:</label>
+                        <span>33</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="widget-body clearfix">
+                <div class="form-input-flat">
+                    <div class="row tiles comment_tile">
+                        <div class="col-xs-12 load-more-tiles">
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right active-headline">
+                                                        <h4>ACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right active-headline">
+                                                        <h4>ACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-4 tile-grid">
+                                <div class="card card-search-results">
+                                    <div class="front">
+                                        <div class="content-panel">
+                                            <div class="tile-header">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        <h4>DOC - 56899734</h4>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-right inactive-headline">
+                                                        <h4>INACTIVE</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body search-results">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="tile-info">
+                                                            <div>
+                                                                <label>Reentrant Name:</label> <span>John Doe</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>STG:</label> <span>Bloods</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Subset:</label> <span>Aryan Nations</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Rank:</label> <span>God Father</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Leader:</label> <span>State Wide</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Status:</label> <span>Affiliated</span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Current Location:</label> <span>Philadelphia CCC #2  </span>
+                                                            </div>
+                                                            <div>
+                                                                <label>Permanent Location:</label> <span>Camp Hill</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-footer btn-icons">
+                                                <div class="clearfix btn-hide">
+                                                    <div class="col-xs-12" style="backface-visibility: hidden;">
+                                                        <a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page" style="backface-visibility: hidden;"> View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-load-more">
+                            <i class="ion ion-load-a">  Loading</i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row page2">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <h4>Reentrant Record Review</h4>
+                <div class="col-xs-3 attempted text-right pull-right">
+                    <label>INACTIVE:</label>
+                    <span>YES</span>
+                </div>
+            </div>
+            <div class="widget-body clearfix">
+                <div class="form-input-flat reentrant-record-review">
+                    <div class="row review-person-section">
+                        <div class="field-heading"><span>Person Details:</span></div>
+                        <div class="review-field-label">
+                            <div class="col-xs-12 col-md-6">
+                                <label>Reentrant DOC#  </label> <span>123456</span>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Reentrant Name: </label> <span>John Doe</span>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <label>Reentrant Nick Name: </label> <span>Pistol Pete Rollack, Tommy The Butcher Pitera, Kazuo The Bear Taoka, John Lista Negra Willis,  Tony Big Tuna Accardo</span>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <label>Reentrant Scars, Marks and Tattoo: </label> <span>Queen, King, Jack, Ace, Joker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row review-activity-section">
+                        <div class="field-heading"><span>Activity Details:</span></div>
+                        <div class="search-container">
+                            <div class="search-results-header">
+                                <div class="clearfix">
+                                    <div class="col-xs-2">
+                                        <h5>Activity Type</h5>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <h5>Activity Date</h5>
+                                    </div>
+                                    <div class="row col-xs-8">
+                                        <h5 class="pull-center">Associations</h5>
+                                        <div class="col-xs-3">
+                                            <h5>Reentrant DOC</h5>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <h5>Reentrant Name</h5>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <h5>Non-Reentrant Name</h5>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <h5>Non-Reentrant NickName</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-results-content">
+                                <div class="clearfix result">
+                                    <div class="col-xs-2">
+                                        <span class="type">Mail</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="date block">3/17/16</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">56899734</span>
+                                        <span class="ID block">56899734</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe</span>
+                                        <span class="ID block">John Doe</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe Junior</span>
+                                        <span class="ID block">John Doe Junior</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">Tiny John</span>
+                                        <span class="ID block">Tiny John</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix result">
+                                    <div class="col-xs-2">
+                                        <span class="type">Mail</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="date block">3/17/16</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">56899734</span>
+                                        <span class="ID block">56899734</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe</span>
+                                        <span class="ID block">John Doe</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe Junior</span>
+                                        <span class="ID block">John Doe Junior</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">Tiny John</span>
+                                        <span class="ID block">Tiny John</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix result">
+                                    <div class="col-xs-2">
+                                        <span class="type">Mail</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="date block">3/17/16</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">56899734</span>
+                                        <span class="ID block">56899734</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe</span>
+                                        <span class="ID block">John Doe</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe Junior</span>
+                                        <span class="ID block">John Doe Junior</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">Tiny John</span>
+                                        <span class="ID block">Tiny John</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix result">
+                                    <div class="col-xs-2">
+                                        <span class="type">Mail</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="date block">3/17/16</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">56899734</span>
+                                        <span class="ID block">56899734</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe</span>
+                                        <span class="ID block">John Doe</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe Junior</span>
+                                        <span class="ID block">John Doe Junior</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">Tiny John</span>
+                                        <span class="ID block">Tiny John</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix result">
+                                    <div class="col-xs-2">
+                                        <span class="type">Mail</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="date block">3/17/16</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">56899734</span>
+                                        <span class="ID block">56899734</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe</span>
+                                        <span class="ID block">John Doe</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">John Doe Junior</span>
+                                        <span class="ID block">John Doe Junior</span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="ID block">Tiny John</span>
+                                        <span class="ID block">Tiny John</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row review-stg-section">
+                        <div class="field-heading"><span>STG Details:</span></div>
+                        <div class="review-field-label">
+                            <div class="col-xs-12 col-md-4">
+                                <label>STG:</label> <span>Bloods</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Subset:</label> <span>Crips</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Rank:</label> <span>God Father</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Leader:</label> <span>State-wide</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Status:</label> <span>Validated</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row review-facility-section">
+                        <div class="field-heading"><span>Facility Details:</span></div>
+                        <div class="review-field-label">
+                            <div class="col-xs-12 col-md-4">
+                                <label>Permanent Facility:</label> <span>Camp Hill</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Permanent Building:</label> <span>A</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Permanent Section:</label> <span>A</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Current Facility:</label> <span>Camp Hill</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Current Building:</label> <span>A</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Current Section:</label> <span>A</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row review-reentrant-section">
+                        <div class="field-heading"><span>Reentrant Details:</span></div>
+                        <div class="review-field-label">
+                            <div class="col-xs-12 col-md-4">
+                                <label>Address 1:</label> <span>46 December Drive</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Address 2:</label> <span>Apt #5</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>City:</label> <span>Camp Hill</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>State:</label> <span>PA</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Zip:</label> <span>17011</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Reentrant Release Date:</label> <span>01/01/2016</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Committing County:</label> <span>Altoona</span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Counts Of Method Of Verification:</label> <span>14</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12  page-buttons">
+        <div class="btn btn-secondary btn-icon btn-back btn-waypoint btn-go-forward pull-left" data-panel-link="page">
+            <span class="icon"></span>
+            <span>Back to Search Results</span>
+        </div>
+        <button id="" type="submit" class="btn btn-default btn-icon btn-print pull-right">
+            <span>Print</span>
+            <span class="icon"></span>
+        </button>
+    </div>
+</div>
+<script>
+    $(function () {
+        //Function To Freeze Field Section For Animation To Work Effectively
+
+        function freezefieldsection() {
+            $(".ims-toggle-filter-section").css('pointer-events', 'none');
+            setTimeout(function () {
+                $('.ims-toggle-filter-section').css('pointer-events', 'all');
+            }, 1500);
+        }
+
+        //This code helps to load tile on page scroll
+        var load_counter = 0;
+        $(window).scroll(function () {
+            if ($(document).height() <= $(window).scrollTop() + $(window).height()) {
+                load_counter = load_counter + 1;
+                if (load_counter < 10) {
+                    $load = $('<div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right inactive-headline"><h4>INACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div><div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right active-headline"><h4>ACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div><div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right inactive-headline"><h4>INACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div><div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right active-headline"><h4>ACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div><div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right inactive-headline"><h4>INACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div><div class="col-sm-5 col-md-4 tile-grid"><div class="card card-search-results"><div class="front"><div class="content-panel"><div class="tile-header"><div class="row"><div class="col-xs-8"><h4>DOC - 56899734</h4></div><div class="col-xs-4 pull-right active-headline"><h4>ACTIVE</h4></div></div></div><div class="tile-body search-results"><div class="row"><div class="col-xs-12"><div class="tile-info"><div><label>Reentrant Name:</label> <span>John Doe</span></div><div><label>STG:</label> <span>Bloods</span></div><div><label>Subset:</label> <span>Aryan Nations</span></div><div><label>Rank:</label> <span>God Father</span></div><div><label>Leader:</label> <span>State Wide</span></div><div><label>Status:</label> <span>Affiliated</span></div><div><label>Current Location:</label> <span>Philadelphia CCC #2  </span></div><div><label>Permanent Location:</label> <span>Camp Hill</span></div></div></div></div></div><div class="tile-footer btn-icons"><div class="clearfix btn-hide"><div class="col-xs-12" style="backface-visibility: hidden;"><a class="btn-footer btn-views btn-waypoint btn-go-forward" data-panel-link="page2" style="backface-visibility: hidden;"> View</a></div></div></div></div></div></div></div>').hide();
+                    $('.load-more-tiles').append($load);
+                    $load.fadeIn('slow');
+                }
+                else {
+                    $(".tile-load-more").hide();
+                }
+            }
+        });
+        var total_activated_filter = 0;
+        var stg_affiliation_activated_filter = 0;
+        var selected_filters = $(".ims-search-selected-section");
+        $('.if-reentrant-stg-historical-records').click(function () {
+            if (stg_affiliation_activated_filter > 0) {
+                if ($(this).is(":checked")) {
+                    $('.inactive-yes').show();
+                    $('.inactive-no').hide();
+                }
+                else {
+                    $('.inactive-yes').hide();
+                    $('.inactive-no').show();
+                }
+            }
+        });
+        $('.if-reentrant-inactive-records').click(function () {
+            if (total_activated_filter > 0) {
+                if ($(this).is(":checked")) {
+                    $('.inactive-records-yes').show();
+                    $('.inactive-records-no').hide();
+                }
+                else {
+                    $('.inactive-records-yes').hide();
+                    $('.inactive-records-no').show();
+                }
+            }
+        });
+        $('.if-reentrant-id').click(function () {
+            var activate_filter = $('.person-reentrant');
+            if ($(this).is(":checked")) {
+                $('.person-reentrant').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelreentrant").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.person-reentrant').hide(1000);
+                $(".search-labelreentrant").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+
+        });
+        $('.if-reentrant-nick-name').click(function () {
+            var activate_filter = $('.person-reentrant-nickname');
+            if ($(this).is(":checked")) {
+                $('.person-reentrant-nickname').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelreentrant-nickname").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.person-reentrant-nickname').hide(1000);
+                $(".search-labelreentrant-nickname").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-tattoo').click(function () {
+            var activate_filter = $('.person-reentrant-tattoo');
+            if ($(this).is(":checked")) {
+                $('.person-reentrant-tattoo').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelreentrant-tattoo").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.person-reentrant-tattoo').hide(1000);
+                $(".search-labelreentrant-tattoo").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        //$('.if-reentrant-association-name').click(function () {
+        //    var activate_filter = $('.person-non-reentrant-association-name');
+        //    if ($(this).is(":checked")) {
+        //        $('.person-non-reentrant-association-name').show(1000);
+        //        activate_filter.animate({ opacity: '1.0' }, "slow");
+        //        $(".search-labelnon-reentrant-association-name").show();
+        //        total_activated_filter++;
+        //    } else {
+        //        activate_filter.animate({ opacity: '0.4' }, "slow");
+        //        $('.person-non-reentrant-association-name').hide(1000);
+        //        $(".search-labelnon-reentrant-association-name").hide();
+        //        total_activated_filter--;
+        //    }
+        //    if (total_activated_filter > 0) {
+        //        $('.ims-search-selected-section').show(1000);
+        //        selected_filters.animate({ opacity: '1.0' }, "slow");
+        //    } else {
+        //        selected_filters.animate({ opacity: '0.4' }, "slow");
+        //        $('.ims-search-selected-section').hide(1000);
+        //    }
+        //});
+        $('.if-reentrant-activity-type').click(function () {
+            var activate_filter = $('.person-activity-type');
+            freezefieldsection();
+            if ($(this).is(":checked")) {
+                $('.person-activity-type').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelactivity-type").show();
+                $('.if-reentrant-activity-date-range').trigger("click");
+                total_activated_filter++;
+                $(".activity-date-range-control").show(1000);
+                activate_activity_date_range();
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.person-activity-type').hide(1000);
+                $(".search-labelactivity-type").hide();
+                total_activated_filter--;
+                if ($('.if-reentrant-activity-date-range').is(":checked")) {
+                    $('.if-reentrant-activity-date-range').trigger("click");
+                }
+                $(".activity-date-range-control").hide(1000);
+                activate_activity_date_range();
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+
+        });
+        function activate_activity_date_range() {
+            var activate_filter = $('.person-activity-start-date');
+            var activate_filter_type2 = $('.person-activity-end-date');
+            if ($('.if-reentrant-activity-type').is(":checked")) {
+                $('.person-activity-start-date').show(1000);
+                $('.person-activity-end-date').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                activate_filter_type2.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelactivity-date-range").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                activate_filter_type2.animate({ opacity: '0.4' }, "slow");
+                $('.person-activity-start-date').hide(1000);
+                $('.person-activity-end-date').hide(1000);
+                $(".search-labelactivity-date-range").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        }
+        $('.if-stg-affiliation-stg').click(function () {
+            var activate_filter = $('.stg-affiliation-stg');
+            if ($(this).is(":checked")) {
+                $('.stg-affiliation-stg').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelstg").show();
+                total_activated_filter++;
+                stg_affiliation_activated_filter++;
+            } else {
+                if ($('.if-stg-affiliation-subset').is(":checked")) {
+                    $('.if-stg-affiliation-subset').trigger("click");
+                }
+                if ($('.if-stg-affiliation-rank').is(":checked")) {
+                    $('.if-stg-affiliation-rank').trigger("click");
+                }
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.stg-affiliation-stg').hide(1000);
+                $(".search-labelstg").hide();
+                total_activated_filter--;
+                stg_affiliation_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+            if (stg_affiliation_activated_filter > 0) {
+                addpointerevents();
+            } else {
+                removepointerevents();
+            }
+        });
+        $('.if-stg-affiliation-subset').click(function () {
+            var activate_filter = $('.stg-affiliation-subset');
+            if ($(this).is(":checked")) {
+
+                $('.stg-affiliation-subset').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelsubset").show();
+                total_activated_filter++;
+                stg_affiliation_activated_filter++;
+                if ($('.if-stg-affiliation-stg').is(":checked")) {
+                }
+                else {
+                    $('.if-stg-affiliation-stg').trigger("click");
+                }
+
+            } else {
+                if ($('.if-stg-affiliation-rank').is(":checked")) {
+                    $('.if-stg-affiliation-rank').trigger("click");
+                }
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.stg-affiliation-subset').hide(1000);
+                $(".search-labelsubset").hide();
+                total_activated_filter--;
+                stg_affiliation_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+            if (stg_affiliation_activated_filter > 0) {
+                addpointerevents();
+            } else {
+                removepointerevents();
+            }
+        });
+        $('.if-stg-affiliation-rank').click(function () {
+
+            var activate_filter = $('.stg-affiliation-rank');
+            if ($(this).is(":checked")) {
+
+                $('.stg-affiliation-rank').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelrank").show();
+                total_activated_filter++;
+                stg_affiliation_activated_filter++;
+                if ($('.if-stg-affiliation-stg').is(":checked")) {
+                }
+                else {
+                    $('.if-stg-affiliation-stg').trigger("click");
+                }
+
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.stg-affiliation-rank').hide(1000);
+                $(".search-labelrank").hide();
+                total_activated_filter--;
+                stg_affiliation_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+            if (stg_affiliation_activated_filter > 0) {
+                addpointerevents();
+            } else {
+                removepointerevents();
+            }
+        });
+        $('.if-stg-affiliation-leader').click(function () {
+            var activate_filter = $('.stg-affiliation-leader');
+            if ($(this).is(":checked")) {
+                $('.stg-affiliation-leader').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelleader").show();
+                total_activated_filter++;
+                stg_affiliation_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.search-labelleader').hide();
+                $(".stg-affiliation-leader").hide(1000);
+                total_activated_filter--;
+                stg_affiliation_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+            if (stg_affiliation_activated_filter > 0) {
+                addpointerevents();
+            } else {
+                removepointerevents();
+            }
+        });
+        $('.if-stg-affiliation-status').click(function () {
+            var activate_filter = $('.stg-affiliation-status');
+            if ($(this).is(":checked")) {
+                $('.stg-affiliation-status').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelstatus").show();
+                total_activated_filter++;
+                stg_affiliation_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.stg-affiliation-status').hide(1000);
+                $(".search-labelstatus").hide();
+                total_activated_filter--;
+                stg_affiliation_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+            if (stg_affiliation_activated_filter > 0) {
+                addpointerevents();
+            } else {
+                removepointerevents();
+            }
+        });
+        $('.if-facility-facility').click(function () {
+            var activate_filter = $('.facility-facility');
+            if ($(this).is(":checked")) {
+                $('.facility-facility').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelfacility").show();
+                total_activated_filter++;
+            } else {
+                if ($('.if-facility-building').is(":checked")) {
+                    $('.if-facility-building').trigger("click");
+                }
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.facility-facility').hide(1000);
+                $(".search-labelfacility").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-facility-building').click(function () {
+            var activate_filter = $('.facility-building');
+            if ($(this).is(":checked")) {
+                $('.facility-building').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelbuilding").show();
+                total_activated_filter++;
+                if ($('.if-facility-facility').is(":checked")) {
+                }
+                else {
+                    $('.if-facility-facility').trigger("click");
+                }
+            } else {
+                if ($('.if-facility-section').is(":checked")) {
+                    $('.if-facility-section').trigger("click");
+                }
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.facility-building').hide(1000);
+                $(".search-labelbuilding").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-facility-section').click(function () {
+            var activate_filter = $('.facility-section');
+            if ($(this).is(":checked")) {
+                $('.facility-section').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelsection").show();
+                total_activated_filter++;
+                if ($('.if-facility-building').is(":checked")) {
+                }
+                else {
+                    $('.if-facility-building').trigger("click");
+                }
+                if ($('.if-facility-facility').is(":checked")) {
+                }
+                else {
+                    $('.if-facility-facility').trigger("click");
+                }
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.facility-section').hide(1000);
+                $(".search-labelsection").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-address1').click(function () {
+            var activate_filter = $('.reentrant-details-address1');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-address1').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labeladdress-1").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-address1').hide(1000);
+                $(".search-labeladdress-1").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-address2').click(function () {
+            var activate_filter = $('.reentrant-details-address2');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-address2').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labeladdress-2").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-address2').hide(1000);
+                $(".search-labeladdress-2").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-city').click(function () {
+            var activate_filter = $('.reentrant-details-city');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-city').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelcity").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-city').hide(1000);
+                $(".search-labelcity").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-state').click(function () {
+            var activate_filter = $('.reentrant-details-state');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-state').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelstate").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-state').hide(1000);
+                $(".search-labelstate").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-zip').click(function () {
+            var activate_filter = $('.reentrant-details-zip');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-zip').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelzip").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-zip').hide(1000);
+                $(".search-labelzip").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-release-daterange').click(function () {
+            var activate_filter = $('.reentrant-details-release-start-date');
+            var activate_filter_type2 = $('.reentrant-details-release-end-date');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-release-start-date').show(1000);
+                $('.reentrant-details-release-end-date').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                activate_filter_type2.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelreentrant-release-date").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                activate_filter_type2.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-release-start-date').hide(1000);
+                $('.reentrant-details-release-end-date').hide(1000);
+                $(".search-labelreentrant-release-date").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+        $('.if-reentrant-details-committing-county').click(function () {
+            var activate_filter = $('.reentrant-details-committing-county');
+            if ($(this).is(":checked")) {
+                $('.reentrant-details-committing-county').show(1000);
+                activate_filter.animate({ opacity: '1.0' }, "slow");
+                $(".search-labelcommitting-county").show();
+                total_activated_filter++;
+            } else {
+                activate_filter.animate({ opacity: '0.4' }, "slow");
+                $('.reentrant-details-committing-county').hide(1000);
+                $(".search-labelcommitting-county").hide();
+                total_activated_filter--;
+            }
+            if (total_activated_filter > 0) {
+                $('.ims-search-selected-section').show(1000);
+                selected_filters.animate({ opacity: '1.0' }, "slow");
+                addinactiverecordspointerevents();
+            } else {
+                selected_filters.animate({ opacity: '0.4' }, "slow");
+                $('.ims-search-selected-section').hide(1000);
+                removeinactiverecordspointerevents();
+            }
+        });
+
+        //Function To Trigger Active Pointer Events
+
+        function addpointerevents() {
+            $(".inactive-controls").css("pointer-events", "all");
+        }
+        function removepointerevents() {
+            $(".inactive-controls").css("pointer-events", "none");
+            $('.inactive-yes').hide();
+            $('.inactive-no').show();
+            if ($(".if-reentrant-stg-historical-records").is(":checked")) {
+                $(".if-reentrant-stg-historical-records").trigger("click");
+            }
+        }
+
+        function addinactiverecordspointerevents(){
+            $(".inactive-records-controls").css("pointer-events", "all");
+        }
+
+        function removeinactiverecordspointerevents() {
+            $(".inactive-records-controls").css("pointer-events", "none");
+            $('.inactive-records-yes').hide();
+            $('.inactive-records-no').show();
+            if ($(".if-reentrant-inactive-records").is(":checked")) {
+                $(".if-reentrant-inactive-records").trigger("click");
+            }
+        }
+
+        //Remove Icon for each filter Starts here
+
+        $(".remove-filter-reentrant-details-committing-county").click(function () {
+            $('.if-reentrant-details-committing-county').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-release-end-date").click(function () {
+            $('.if-reentrant-details-release-daterange').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-release-start-date").click(function () {
+            $('.if-reentrant-details-release-daterange').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-zip").click(function () {
+            $('.if-reentrant-details-zip').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-state").click(function () {
+            $('.if-reentrant-details-state').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-city").click(function () {
+            $('.if-reentrant-details-city').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-address2").click(function () {
+            $('.if-reentrant-details-address2').trigger("click");
+        });
+
+        $(".remove-filter-reentrant-details-address1").click(function () {
+            $('.if-reentrant-details-address1').trigger("click");
+        });
+
+        $(".remove-filter-facility-section").click(function () {
+            $('.if-facility-section').trigger("click");
+        });
+
+        $(".remove-filter-facility-building").click(function () {
+            $('.if-facility-building').trigger("click");
+        });
+
+        $(".remove-filter-facility-facility").click(function () {
+            $('.if-facility-facility').trigger("click");
+        });
+
+        $(".remove-filter-stg-affiliation-status").click(function () {
+            $('.if-stg-affiliation-status').trigger("click");
+        });
+
+        $(".remove-filter-stg-affiliation-leader").click(function () {
+            $('.if-stg-affiliation-leader').trigger("click");
+        });
+
+        $(".remove-filter-stg-affiliation-rank").click(function () {
+            $('.if-stg-affiliation-rank').trigger("click");
+        });
+
+        $(".remove-filter-stg-affiliation-subset").click(function () {
+            $('.if-stg-affiliation-subset').trigger("click");
+        });
+
+        $(".remove-filter-stg-affiliation-stg").click(function () {
+            $('.if-stg-affiliation-stg').trigger("click");
+        });
+
+        //$(".remove-filter-person-activity-end-date").click(function () {
+        //    $('.if-reentrant-activity-date-range').trigger("click");
+        //});
+
+        //$(".remove-filter-person-activity-start-date").click(function () {
+        //    $('.if-reentrant-activity-date-range').trigger("click");
+        //});
+
+        $(".remove-filter-person-activity-type").click(function () {
+            $('.if-reentrant-activity-type').trigger("click");
+        });
+
+        $(".remove-filter-person-reentrant-tattoo").click(function () {
+            $('.if-reentrant-tattoo').trigger("click");
+        });
+
+        $(".remove-filter-person-reentrant-nickname").click(function () {
+            $('.if-reentrant-nick-name').trigger("click");
+        });
+
+        $(".remove-filter-person-reentrant").click(function () {
+            $('.if-reentrant-id').trigger("click");
+        });
+
+        //Remove Icon for each filter Ends here
+
+        $(".ims-reset-filter").click(function () {
+            if ($(".if-reentrant-id").is(":checked")) {
+                $('.if-reentrant-id').trigger("click");
+            }
+            if ($(".if-reentrant-nick-name").is(":checked")) {
+                $('.if-reentrant-nick-name').trigger("click");
+            }
+            if ($(".if-reentrant-tattoo").is(":checked")) {
+                $('.if-reentrant-tattoo').trigger("click");
+            }
+            //if ($(".if-reentrant-association-name").is(":checked")) {
+            //    $('.if-reentrant-association-name').trigger("click");
+            //}
+            if ($(".if-reentrant-activity-type").is(":checked")) {
+                $('.if-reentrant-activity-type').trigger("click");
+            }
+            //if ($(".if-reentrant-activity-date-range").is(":checked")) {
+            //    $('.if-reentrant-activity-date-range').trigger("click");
+            //}
+            if ($(".if-stg-affiliation-stg").is(":checked")) {
+                $('.if-stg-affiliation-stg').trigger("click");
+            }
+            if ($(".if-stg-affiliation-subset").is(":checked")) {
+                $('.if-stg-affiliation-subset').trigger("click");
+            }
+            if ($(".if-stg-affiliation-rank").is(":checked")) {
+                $('.if-stg-affiliation-rank').trigger("click");
+            }
+            if ($(".if-stg-affiliation-leader").is(":checked")) {
+                $('.if-stg-affiliation-leader').trigger("click");
+            }
+            if ($(".if-stg-affiliation-status").is(":checked")) {
+                $('.if-stg-affiliation-status').trigger("click");
+            }
+            if ($(".if-facility-facility").is(":checked")) {
+                $('.if-facility-facility').trigger("click");
+            }
+            if ($(".if-facility-building").is(":checked")) {
+                $('.if-facility-building').trigger("click");
+            }
+            if ($(".if-facility-section").is(":checked")) {
+                $('.if-facility-section').trigger("click");
+            }
+            if ($(".if-reentrant-details-address1").is(":checked")) {
+                $('.if-reentrant-details-address1').trigger("click");
+            }
+            if ($(".if-reentrant-details-address2").is(":checked")) {
+                $('.if-reentrant-details-address2').trigger("click");
+            }
+            if ($(".if-reentrant-details-city").is(":checked")) {
+                $('.if-reentrant-details-city').trigger("click");
+            }
+            if ($(".if-reentrant-details-state").is(":checked")) {
+                $('.if-reentrant-details-state').trigger("click");
+            }
+            if ($(".if-reentrant-details-zip").is(":checked")) {
+                $('.if-reentrant-details-zip').trigger("click");
+            }
+            if ($(".if-reentrant-details-release-daterange").is(":checked")) {
+                $('.if-reentrant-details-release-daterange').trigger("click");
+            }
+            if ($(".if-reentrant-details-committing-county").is(":checked")) {
+                $('.if-reentrant-details-committing-county').trigger("click");
+            }
+            selected_filters.animate({ opacity: '0.4' }, "slow");
+            $('.ims-search-selected-section').hide(1000);
+            var ims_search_filtered_results = $(".ims-search-filtered-results");
+            ims_search_filtered_results.animate({ opacity: '0.4' }, "slow");
+            $(".ims-search-filtered-results").hide(1000);
+            $(".ims-search-filter-minimize").hide();
+        });
+
+        $(".ims-selected-search").click(function () {
+            var ims_search_selected_section = $(".ims-search-selected-section");
+            var ims_toggle_filter_section = $(".ims-toggle-filter-section");
+            var ims_search_expand_section = $(".ims-search-expand-section");
+            var ims_search_filtered_results = $(".ims-search-filtered-results");
+            ims_search_selected_section.animate({ opacity: '0.4' }, "slow");
+            ims_toggle_filter_section.animate({ opacity: '0.4' }, "slow");
+            $(".ims-search-selected-section").hide(1000);
+            $(".ims-toggle-filter-section").hide(1000);
+            $(".ims-search-expand-section").show(1000);
+            ims_search_expand_section.animate({ opacity: '1.0' }, "slow");
+            $(".ims-search-filtered-results").show(1000);
+            ims_search_filtered_results.animate({ opacity: '1.0' }, "slow");
+            $('.nav-pills li.active').removeClass('active');
+            $('.nav-pills').css('pointer-events', 'none');
+            $(".toggle-filter-info").hide();
+            $(".expand-filter-info").show();
+            $(".ims-search-filter-minimize").show(1000);
+        });
+
+        $(".ims-search-filter-minimize").click(function () {
+            var ims_search_selected_section = $(".ims-search-selected-section");
+            var ims_toggle_filter_section = $(".ims-toggle-filter-section");
+            var ims_search_expand_section = $(".ims-search-expand-section");
+            ims_search_selected_section.animate({ opacity: '0.4' }, "slow");
+            ims_toggle_filter_section.animate({ opacity: '0.4' }, "slow");
+            $(".ims-search-selected-section").hide(1000);
+            $(".ims-toggle-filter-section").hide(1000);
+            $(".ims-search-expand-section").show(1000);
+            ims_search_expand_section.animate({ opacity: '1.0' }, "slow");
+            $('.nav-pills li.active').removeClass('active');
+            $('.nav-pills').css('pointer-events', 'none');
+            $(".toggle-filter-info").hide();
+            $(".expand-filter-info").show();
+        });
+
+        $(".ims-search-filter-expand").click(function () {
+
+            var ims_search_selected_section = $(".ims-search-selected-section");
+            var ims_toggle_filter_section = $(".ims-toggle-filter-section");
+            var ims_search_expand_section = $(".ims-search-expand-section");
+            $(".ims-toggle-filter-section").show(1000);
+            ims_toggle_filter_section.animate({ opacity: '1.0' }, "slow");
+            $(".ims-search-selected-section").show(1000);
+            ims_search_selected_section.animate({ opacity: '1.0' }, "slow");
+            ims_search_expand_section.animate({ opacity: '0.4' }, "slow");
+            $(".ims-search-expand-section").hide(1000);
+            $('.nav-pills').css('pointer-events', 'all');
+            $(".person-details-tab").trigger("click");
+            $(".expand-filter-info").hide();
+            $(".toggle-filter-info").show();
+        });
+
+        /*Selected Search Results*/
+
+        $(".person-reentrant").hide();
+        $(".person-reentrant-nickname").hide();
+        $(".person-reentrant-tattoo").hide();
+        $(".person-non-reentrant-association-name").hide();
+        $(".person-activity-type").hide();
+        $(".person-activity-start-date").hide();
+        $(".person-activity-end-date").hide();
+        $(".stg-affiliation-stg").hide();
+        $(".stg-affiliation-subset").hide();
+        $(".stg-affiliation-rank").hide();
+        $(".stg-affiliation-leader").hide();
+        $(".stg-affiliation-status").hide();
+        $(".facility-facility").hide();
+        $(".facility-building").hide();
+        $(".facility-section").hide();
+        $(".reentrant-details-address1").hide();
+        $(".reentrant-details-address2").hide();
+        $(".reentrant-details-city").hide();
+        $(".reentrant-details-state").hide();
+        $(".reentrant-details-zip").hide();
+        $(".reentrant-details-release-start-date").hide();
+        $(".reentrant-details-release-end-date").hide();
+        $(".reentrant-details-committing-county").hide();
+        $(".ims-search-label").hide();
+        $(".ims-search-filter-minimize").hide();
+        $(".expand-filter-info").hide();
+        $(".ims-search-filtered-results").hide();
+        $(".ims-search-selected-section").hide();
+        $(".ims-search-expand-section").hide();
+        $(".inactive-yes").hide();
+        $(".activity-date-range-control").hide();
+        $(".inactive-records-yes").hide();
+
+        //On Load
+        $(".inactive-controls").css("pointer-events", "none");
+        $(".inactive-records-controls").css("pointer-events", "none");
+        //var search_facility = '[{"id":"alb","description":"albion"},{"id":"BTS","description":"Benner Township"},{"id":"CAM","description":"Camp Hill"},{"id":"CHS","description":"Chester"}]';
+        //var search_building = '[{"id":"1","description":"A"},{"id":"2","description":"B"},{"id":"3","description":"C"},{"id":"4","description":"D"}]';
+        //var search_section = '[{"id":"1","description":"A"},{"id":"2","description":"B"},{"id":"3","description":"C"},{"id":"4","description":"D"}]';
+        //var search_stgmuphase = '[{"id":"5","description":"Phase5"},{"id":"4","description":"Phase4"},{"id":"3","description":"Phase3"},{"id":"2","description":"Phase2"},{"id":"1","description":"Phase1"}]';
+        //var description_facility = [];
+        //var description_building = [];
+        //var description_section = [];
+        //var description_stgmuphase = [];
+        //var keyword_facility = [];
+        //var keyword_building = [];
+        //var keyword_section = [];
+        //var keyword_stgmuphase = [];
+        ///*Activate Dropdowns*/
+        //dropdownsearch(search_facility, '#search-facility', keyword_facility, description_facility); //DATA-ID = 1
+        //dropdownsearch(search_building, '#search-building', keyword_building, description_building); //DATA-ID = 2
+        //dropdownsearch(search_section, '#search-section', keyword_section, description_section);//DATA-ID = 3
+        //dropdownsearch(search_stgmuphase, '#search-stgmuphase', keyword_stgmuphase, description_stgmuphase);//DATA-ID = 4
+
+        /*Print Document*/
+        $(".btn-print").click(function () {
+            $(".overlay, .navbar-right, .sidebar, .sidebar-bg, .footer, .sidebar-right, .sidebar-bg-right, .backstretch").hide();
+            $(".page-buttons").hide();
+            window.print();
+            $(".overlay, .navbar-right, .sidebar, .sidebar-bg, .footer, .sidebar-right, .sidebar-bg-right, .backstretch").show();
+            $(".page-buttons").show();
+        });
+    });
+
+    $(document).ready(function () {
+        var focus_navigation = 0;
+        var scroll_navigation = 0;
+        $(".form-control").focus(function () {
+            focus_navigation = 1;
+        });
+        $(".form-control").blur(function () {
+            focus_navigation = 0;
+        });
+        var tab_navigation = 0;
+        var div1 = $(".ims-search-person-section");
+        var div2 = $(".ims-search-stg-section");
+        var div3 = $(".ims-search-facility-section");
+        var div4 = $(".ims-search-reentrant-section");
+        $('.ims-search-person-section').show();
+        $('.ims-search-stg-section').hide();
+        $('.ims-search-facility-section').hide();
+        $('.ims-search-reentrant-section').hide();
+        $('.person-details-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+
+            div2.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.ims-search-person-section').show(1000);
+            div1.animate({ opacity: '1.0' }, "slow");
+            $('.ims-search-stg-section').hide(1000);
+            $('.ims-search-facility-section').hide(1000);
+            $('.ims-search-reentrant-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+
+        });
+        $('.stg-affiliation-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+
+            div1.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.ims-search-stg-section').show(1000);
+            div2.animate({ opacity: '1.0' }, "slow");
+            $('.ims-search-person-section').hide(1000);
+            $('.ims-search-facility-section').hide(1000);
+            $('.ims-search-reentrant-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+        $('.facility-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+
+            div1.animate({ opacity: '0.4' }, "slow");
+            div2.animate({ opacity: '0.4' }, "slow");
+            div4.animate({ opacity: '0.4' }, "slow");
+            $('.ims-search-facility-section').show(1000);
+            div3.animate({ opacity: '1.0' }, "slow");
+            $('.ims-search-person-section').hide(1000);
+            $('.ims-search-stg-section').hide(1000);
+            $('.ims-search-reentrant-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+        $('.reentrant-details-tab').click(function (e) {
+            $('.nav-pills').css('pointer-events', 'none');
+            div1.animate({ opacity: '0.4' }, "slow");
+            div2.animate({ opacity: '0.4' }, "slow");
+            div3.animate({ opacity: '0.4' }, "slow");
+            $('.ims-search-reentrant-section').show(1000);
+            div4.animate({ opacity: '1.0' }, "slow");
+            $('.ims-search-person-section').hide(1000);
+            $('.ims-search-stg-section').hide(1000);
+            $('.ims-search-facility-section').hide(1000);
+            setTimeout(function () {
+                $('.nav-pills').css('pointer-events', 'all');
+                tab_navigation = 0;
+            }, 1500);
+        });
+
+        //MULTISELECT DROPDOWN
+        var first_dropdown_json = '[{"id":"MAI","description":"CATEGORY1"},{"id":"MON","description":"CATEGORY2"},{"id":"INC","description":"CATEGORY3"},{"id":"PHO","description":"CATEGORY4"},{"id":"MEM","description":"CATEGORY5"}]';
+        var committing_county_json = '[{"id":"MAI","description":"CATEGORY1"}]'
+        var description_first_dropdown = [];
+        var description_committing_county = [];
+        var keyword_first_dropdown = [];
+        var keyword_committing_county = [];
+        //Trigger Multiselectdropdown Function For each Dropdown Field
+        multiselectdropdownsearch(first_dropdown_json, '#search-activity-type', keyword_first_dropdown, description_first_dropdown); //Data-ID = 100
+        multiselectdropdownsearch(first_dropdown_json, '#search-stg', keyword_first_dropdown, description_first_dropdown); //Data-ID = 101
+        multiselectdropdownsearch(first_dropdown_json, '#search-subset', keyword_first_dropdown, description_first_dropdown); //Data-ID = 102
+        multiselectdropdownsearch(first_dropdown_json, '#search-rank', keyword_first_dropdown, description_first_dropdown); //Data-ID = 103
+        multiselectdropdownsearch(first_dropdown_json, '#search-leader', keyword_first_dropdown, description_first_dropdown); //Data-ID = 104
+        multiselectdropdownsearch(first_dropdown_json, '#search-status', keyword_first_dropdown, description_first_dropdown); //Data-ID = 105
+        multiselectdropdownsearch(first_dropdown_json, '#search-facility', keyword_first_dropdown, description_first_dropdown); //Data-ID = 106
+        multiselectdropdownsearch(first_dropdown_json, '#search-building', keyword_first_dropdown, description_first_dropdown); //Data-ID = 107
+        multiselectdropdownsearch(first_dropdown_json, '#search-section', keyword_first_dropdown, description_first_dropdown); //Data-ID = 108
+        multiselectdropdownsearch(committing_county_json, '#search-committing-county', keyword_first_dropdown, description_first_dropdown); //Data-ID = 108
+
+        var state_json = '[{"id":"ANC","description":"Animal Cruelty"},{"id":"ASS","description":"Assault"},{"id":"AUT","description":"Auto Theft"},{"id":"BGC","description":"Background Check"},{"id":"BUR","description":"Burglary"},{"id":"COM","description":"Corruption of Minors"},{"id":"EXP","description":"Explosives"},{"id":"GLV","description":"Game Law Violation"}]';
+        var description_state = [];
+        var keyword_state = [];
+        dropdownsearch(state_json, '#state-name', keyword_state, description_state); //DATA-ID = 1
+    });
+</script>

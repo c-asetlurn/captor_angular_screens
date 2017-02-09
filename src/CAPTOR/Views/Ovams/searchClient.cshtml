@@ -1,0 +1,424 @@
+﻿@{
+    Layout = "_LayoutOVAMSWithoutRightSidebar";
+    ViewData["Title"] = "Ovams Search";
+}
+<!-- Page Header -->
+<div class="row">
+    <div class="col-xs-8 col-md-8">
+        <h1 class="case-note-list-page-header page-header col-xs-12"><span>OVAMS Search</span></h1>
+    </div>
+</div>
+@*<div class="row page" ng-controller="ovaSerach as ova">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <div class="inline-radios block">
+                    <div class="radio-group radio-inline">
+                        <input id="radio-1" class="radio-custom " name="searchgroup" type="radio" checked>
+                        <label for="radio-1" class="radio-custom-label">Individual</label>
+                    </div>
+                    <div class="radio-group radio-inline">
+                        <input id="radio-2" class="radio-custom" name="searchgroup" type="radio">
+                        <label for="radio-2" class="radio-custom-label">Organization</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="widget-body clearfix">
+                <div class="widget widget-form">
+
+                    <ul class="nav nav-pills nav-justified nav-pills-primary nav-pills-inline">
+                        <li ng-class="data.enable==true ? 'active':' '" ng-repeat="data in ova.individualSearch_tabs track by $index"><a href="#" class="person-details-tab" ng-click="ova.searchType(data)" data-toggle="tab">{{data.title}} <br />&nbsp;</a></li>
+                    </ul>
+
+
+
+
+
+                </div>
+                <div class="form-input-flat">
+                    <div class="ims-toggle-filter-section">
+                        <div class="field-heading"><span>Fields:</span></div>
+
+                        <div class="row ims-search-person-section " ng-show="ova.tabcontent==ova.individualSearch_tabs[0].title">
+
+                            <div class="row ims-search-person-section">
+                                <div class="col-xs-12 col-md-3" ng-repeat="data in ova.individualperson_fileds track by $index">
+                                    <div class="form-group input-controls">
+                                        <label class="control-label">{{data.title}}</label>
+                                        <label class="switch-checkbox">
+                                            <input type="checkbox" class="if-reentrant-id" ng-model="ova.individualperson_fileds[$index].hideVar" ng-change="ova.showFilterGroup(ova.individualperson_fileds[$index].hideVar)">
+                                            <div class="slider-checkbox round"></div>
+                                        </label>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row ims-search-demographic-section tab-content" ng-show="ova.tabcontent==ova.individualSearch_tabs[1].title">
+                            <div class="col-xs-12 col-md-3" ng-repeat="data in ova.individualdemographics_fileds track by $index">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">{{data.title}}</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-id" ng-model="ova.individualdemographics_fileds[$index].hideVar" ng-change="ova.showFilterGroup(ova.individualdemographics_fileds[$index].hideVar)">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ims-search-offender-section tab-content" ng-show="ova.tabcontent==ova.individualSearch_tabs[2].title">
+                            <div class="col-xs-12 col-md-3" ng-repeat="data in ova.individualoffender_fileds track by $index">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">{{data.title}}</label>
+                                    <label class="switch-checkbox">
+                                        <input type="checkbox" class="if-reentrant-id" ng-model="ova.individualoffender_fileds[$index].hideVar" ng-change="ova.showFilterGroup(ova.individualoffender_fileds[$index].hideVar)">
+                                        <div class="slider-checkbox round"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ims-search-selected-section">
+                            <div class="filter-icon col-sm-12" ng-show="ova.showfilterbtn">
+                                <i class="fa fa-2x fa-fw fa-filter"></i>
+                                <label class="control-label">Selected Filters</label>
+                            </div>
+                            <div class="col-xs-12 col-md-4 search_animation" ng-show="ova.individualperson_fileds[0].hideVar">
+                                <div class="form-group">
+                                    <label class="control-label">{{ova.individualperson_fileds[0].title}}</label>
+                                    <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualperson_fileds[0])"></i></a></span>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-4 search_animation " ng-show="ova.individualperson_fileds[1].hideVar">
+                                <div class="form-group">
+                                    <label class="control-label">{{ova.individualperson_fileds[1].title}}</label>
+                                    <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualperson_fileds[1])"></i></a></span>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12 search_animation ">
+
+                                <div class="col-xs-12 col-md-4" ng-show="ova.individualdemographics_fileds[0].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[0].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[0])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[1].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[1].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[1])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[2].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[2].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[2])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[3].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[3].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[3])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[4].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[4].title}}h</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[4])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[5].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[5].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[5])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[6].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[6].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[6])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[7].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[7].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[7])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualdemographics_fileds[8].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualdemographics_fileds[8].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualdemographics_fileds[8])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12 search_animation ">
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualoffender_fileds[0].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualoffender_fileds[0].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualoffender_fileds[0])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualoffender_fileds[1].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualoffender_fileds[1].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualoffender_fileds[1])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 " ng-show="ova.individualoffender_fileds[2].hideVar">
+                                    <div class="form-group">
+                                        <label class="control-label">{{ova.individualoffender_fileds[2].title}}</label>
+                                        <span class="pull-right"><a href="javascript:;"><i class="fa ion-close text-danger remove-filter-person-reentrant" ng-click="ova.hideFields(ova.individualoffender_fileds[2])"></i></a></span>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-md-6 pull-right filter-button" ng-show="ova.showfilterbtn">
+                                <div class="col-sm-12 col-md-4 ims-selected-search pull-right">
+                                    <div class="btn btn-search btn-default btn-icon pull-right">
+                                        <span>Search</span>
+                                        <span class="icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ims-reset-filter pull-right">
+                                    <div class="btn btn-clear btn-default btn-icon pull-right" ng-click="ova.clearFields()">
+                                        <span>Reset Filters</span>
+                                        <span class="icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ims-search-filter-minimize pull-right">
+                                    <div class="btn btn-shrink btn-default btn-icon pull-right">
+                                        <span>Hide Filters</span>
+                                        <span class="icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body clearfix" ng-show="!ova.search_type.show"></div>
+        </div>
+    </div>
+
+    <script src="../OVAMS/Search/ovamsSerachController.js"></script>*@
+
+<div class="row page" ng-controller="ovaSerach as ova">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <ul class="nav nav-pills nav-justified nav-pills-primary nav-pills-inline">
+                    <li ng-class="data.enable==true ? 'active':' '" ng-repeat="data in ova.individualSearch_tabs track by $index"><a href="#" class="person-details-tab" ng-click="ova.searchType(data)" data-toggle="tab">{{data.title}} <br />&nbsp;</a></li>
+                </ul>
+
+
+            </div>
+
+            <div class="widget-body clearfix search_animation " ng-show="ova.tabcontent==ova.individualSearch_tabs[0].title">
+               
+                    <div class="form-input-flat" name="demo-form">
+                        <section>
+
+                           
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Client Registration#</label>
+                                        <input type="text" class="form-control" ng-change="ova.myFunc()" ng-model="ova.myValue">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">ACP# </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section ng-class="ova.disableFields ? 'disabfileds':''">
+                            <h4>Demographics</h4>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">First Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Middle Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Suffix</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label typeof="date" class="control-label">Date of Birth</label>
+                                        <div class="input-group controls">
+
+                                            <input type="text" id="DOB" name="DOB" class="form-control no-future-date" value="" placeholder="MM/DD/YYYY">
+                                            <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group input-controls">
+                                        <label typeof="required" class="control-label">Driver'sLicence State</label>
+                                        <input type="text" data-id="2" name="contact-method" required="" id="contactMethod" class="form-control required ui-autocomplete-input" autocomplete="off" placeholder="Select One">
+                                        <span class="input-group-addon right dropdown-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group input-controls">
+                                        <label class="control-label">Driver'sLicence#</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group input-controls">
+                                        <label class="control-label">Email Address</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group input-controls">
+                                        <label class="control-label">Phone#</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h4>Offender Identifiers</h4>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">SID#</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">DOC# </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Parole Board# </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+              
+            </div>
+            <div class="widget-body clearfix" ng-show="ova.tabcontent==ova.individualSearch_tabs[1].title">
+                <div class="form-input-flat" name="demo-form">
+                    <section>
+                      
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Client Registration#</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Demographics</h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Organization Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Email Address</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Phone#</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <div class="widget-body clearfix search_animation" ng-show="ova.showSearchResults">
+                <div class="col-xs-12 page-buttons">
+
+                    <button class="btn btn-search btn-default btn-icon pull-right" ng-click="ova.toggleSearch()">
+                        <span>Back to Search</span>
+                        <span class="icon"></span>
+                    </button>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="widget-body clearfix" ng-show="ova.showSearchResults">
+            <search-results tiles-array="ova.tilesArray" typeof-search="ova.tabcontent"></search-results>
+        </div>
+        <div class="col-xs-12 page-buttons" ng-show="!ova.showSearchResults">
+            <button type="submit" class="btn btn-secondary btn-icon btn-clear pull-left" data-toggle="modal">
+                <span class="icon"></span>
+                <span>Clear</span>
+            </button>
+
+            <button class="btn btn-search btn-default btn-icon pull-right" ng-click="ova.searchResults()">
+                <span>Search</span>
+                <span class="icon"></span>
+            </button>
+
+
+        </div>
+    </div>
+
+</div>
+<script src="../OVAMS/Search/ovamsSerachController.js"></script>
+<script src="../OVAMS/Search/searchResultsDirective.js"></script>

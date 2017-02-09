@@ -1,0 +1,763 @@
+﻿
+@{
+    ViewBag.Title = "Reentrant Search";
+    Layout = "_LayoutOVAMS";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="offender-search-page-header page-header col-xs-12">
+            <span class="icon"></span>
+            <span class="icon2"></span>
+            <span>Reentrant Search</span>
+        </h1>
+    </div>
+</div>
+<div class="row page validation-check">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+            <div class="widget-header">
+                <h4>Individual Reentrant Search {{data}}</h4>
+                <p class="help-block text-muted m-b-0">
+                    <span class="text-danger">*</span> At least one field is required
+                </p>
+            </div>
+
+            <div class="widget-body clearfix">
+                <div class="form-input-flat" name="demo-form">
+                    <section>
+                        <h4>Reentrant Primary Identifiers</h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">SID#</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">DOC# </label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Parole Board# </label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">ICOTS#</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Reentrant Demographics</h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Last Name</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">First Name</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Middle Name</label>
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label typeof="date" class="control-label">Date Of Birth</label>
+                                    <div class="input-group controls">
+
+                                        <input type="text" id="DOB" name="DOB" class="form-control no-future-date" value="" placeholder="MM/DD/YYYY">
+                                        <span typeof="date" class="input-group-addon right date-field calendar-datepicker-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Sex</label>
+                                    <div class="inline-radios block">
+                                        <div class="radio-group radio-inline">
+                                            <input id="radio-1" class="radio-custom " name="sexgroup" type="radio">
+                                            <label for="radio-1" class="radio-custom-label">Male</label>
+                                        </div>
+                                        <div class="radio-group radio-inline">
+                                            <input id="radio-2" class="radio-custom" name="sexgroup" type="radio">
+                                            <label for="radio-2" class="radio-custom-label">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <div class="form-group input-controls">
+                                    <label class="control-label">Race</label>
+                                    <input type="text" data-id="1" name="Race" required="" id="race" class="form-control" autocomplete="off" placeholder="Select One" />
+                                    <span class="input-group-addon right dropdown-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 page-buttons">
+        <button type="submit" class="btn btn-secondary btn-icon btn-clear pull-left" data-toggle="modal" data-target="#noResultsMdl">
+            <span class="icon"></span>
+            <span>Clear</span>
+        </button>
+
+        <button type="submit" id="activateLoading" class="btn btn-search btn-default btn-icon btn-go-forward pull-right btn-waypoint " data-panel-link="page2">
+            <span>Search</span>
+            <span class="icon"></span>
+        </button>
+
+        @*Button for validation purposes only
+            <button type="submit" class="btn-before-validation btn disabled btn-default btn-icon btn-search btn-go-forward pull-right red-tooltip" data-toggle="tooltip" data-placement="top"
+                    data-original-title="Required Fields are Missing" data-panel-link="page2">
+                <span>Search</span>
+                <span class="icon"></span>
+            </button>
+
+            <button type="submit" class="btn-after-validation btn btn-search btn-default btn-icon btn-go-forward pull-right btn-waypoint" data-panel-link="page2">
+                <span>Search</span>
+                <span class="icon"></span>
+            </button>*@
+
+    </div>
+</div>
+<div class="row page2">
+    <div class="col-xs-12">
+        <div class="widget widget-form">
+
+            <div class="widget-header">
+                <h4>Reentrant Search Results</h4>
+                <p class="help-block text-muted m-b-0">
+                    Your search criteria resulted in multiple results. Choose the correct result by clicking on "SELECT" or click on "FLIP" for additional information.
+                </p>
+            </div>
+
+
+            <div class="clearfix">
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="front">
+                            <div class="content-panel">
+                                <div class="tile-header">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4>John Doe</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <img src="~/Content/img/offender.png" />
+                                        </div>
+                                        <div class="col-xs-6 pull-right p-0">
+                                            <div class="tile-info">
+                                                <div>
+                                                    <label>SID#</label> <span>639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>DOC#</label> <span>125639854</span>
+                                                </div>
+                                                <div>
+                                                    <label>PBPP#</label> <span>P12345</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="clearfix">
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentContainer">
+                            <div class="back">
+                                <div class="content-panel">
+                                    <div class="card-back">
+                                        <div class="tile-header">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Information</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="tile-info">
+                                                        <div>
+                                                            <label>Sex</label> <span>Male</span>
+                                                        </div>
+                                                        <div>
+                                                            <label>Race</label> <span>Hispanic</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-footer">
+                                            <div class="clearfix">
+                                                <div class="col-xs-6">
+                                                    <a href="javascript:void(0)" class="btn-footer btn-flip flip-link">  flip </a>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <a asp-controller="Enterprise" asp-action="Profile" class="btn-footer">  Select</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" class="prev first disabled"><i class="fa ion-chevron-left"></i><i class="fa ion-chevron-left"></i></a></li>
+                        <li class="disabled"><a href="#" class="prev disabled"><i class="fa ion-chevron-left"></i></a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li> <a href="#">2</a></li>
+                        <li> <a href="#">3</a></li>
+                        <li> <a href="#">4</a></li>
+                        <li><a href="#" class="next"><i class="fa ion-chevron-right"></i></a></li>
+                        <li><a href="#" class="next last"><i class="fa ion-chevron-right"></i><i class="fa ion-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 page-buttons">
+        <button type="submit" class="btn btn-secondary btn-icon btn-back btn-waypoint btn-go-back pull-left" data-panel-link="page">
+            <span class="icon"></span>
+            <span>Back</span>
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="noResultsMdl" tabindex="-1" role="dialog" aria-labelledby="noResultMdlLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+
+                <h4 class="modal-title" id="myModalLabel">
+                    Oops!
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="modal-icon text-center">
+                            <i class="fa fa-3x fa-fw fa-warning"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9 text-center">
+                        <p>It appears your search did not produce a valid match. Please review the information entered and search again.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //This script Triggers Validation Check
+    $(".btn-before-validation").bind('click mouseout mouseenter blur', function () {
+        validateText(2); //number of required fields should be passed as value inside the function
+        validateDate();
+    });
+
+    //select or unselect radio buttons
+    $("input[type='radio']").click(function () {
+        var previousValue = $(this).attr('previousValue');
+        var name = $(this).attr('name');
+
+        if (previousValue == 'checked') {
+            $(this).removeAttr('checked');
+            $(this).attr('previousValue', false);
+        }
+        else {
+            $("input[name=" + name + "]:radio").attr('previousValue', false);
+            $(this).attr('previousValue', 'checked');
+        }
+    });
+
+    var race = '[{"id":"White","description":"White/Caucasian"},{"id":"Black","description":"Black/African-American"},{"id":"Hispanic","description":"Hispanic or Spanish Speaking including Mexican and Puerto Rican"},{"id":"Asian","description":"Asian"},{"id":"Pacific","description":"Pacific Islander"},{"id":"Middle-Eastern","description":"Middle-Eastern"}]';
+
+
+    var keyword_agency = [];
+    var description_agency = [];
+
+    dropdownsearch(race, '#race', keyword_agency, description_agency);//DATA-ID = 1
+
+    //attaching enter key to button click
+    $(window).keyup(function (event) {
+        if (event.keyCode == 13) {
+            $(".btn-search").click();
+        }
+    });
+</script>

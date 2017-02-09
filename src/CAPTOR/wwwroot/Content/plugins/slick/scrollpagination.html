@@ -1,0 +1,84 @@
+<html>
+  <head>
+  <title>My Now Amazing Webpage</title>
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+ 
+  <script type="text/javascript" src="slick/slick.js"></script>
+  <style>
+  
+
+.slider {
+    width: auto;
+    margin: 30px 50px 50px;
+}
+
+.slick-slide {
+    background: #cee5ea;
+    color: white;
+    padding: 20px 0;
+    font-size: 30px;
+    font-family: "Arial", "Helvetica";
+    text-align: center;
+    height:100px;
+    img { display: inline-block; }
+}
+
+.slick-prev:before, 
+.slick-next:before {
+    color: black;    
+}
+
+.slick-dots {
+    bottom: -40px;
+}
+
+.slick-slide:nth-child(odd) {
+     background: #efdfda;
+}
+  </style>
+  </head>
+  <body>
+<section class="slider">
+    <div data-thumb="http://cdn.bulbagarden.net/upload/e/ec/001MS.png"><img src="http://cdn.bulbagarden.net/upload/c/c0/Spr_3f_001.png"></div>
+    <div data-thumb="http://cdn.bulbagarden.net/upload/b/bb/004MS.png"><img src="http://cdn.bulbagarden.net/upload/e/e9/Spr_3f_004.png"></div>
+    <div data-thumb="http://cdn.bulbagarden.net/upload/9/92/007MS.png"><img src="http://cdn.bulbagarden.net/upload/f/f8/Spr_3f_007.png"></div>
+    <div data-thumb="http://cdn.bulbagarden.net/upload/0/0f/025MS.png"><img src="http://cdn.bulbagarden.net/upload/5/5b/Spr_3f_025.png"></div>
+    <div data-thumb="http://cdn.bulbagarden.net/upload/d/de/133MS.png"><img src="http://cdn.bulbagarden.net/upload/a/a9/Spr_3f_133.png"></div>
+    <div data-thumb="http://cdn.bulbagarden.net/upload/a/a7/151MS.png"><img src="http://cdn.bulbagarden.net/upload/3/33/Spr_3f_151.png"></div>
+</section>
+  
+
+  <script>
+    $(".slider").slick({
+
+    centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+  </script>
+
+  </body>
+</html>
